@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CycleVerse | Road Bicycles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/roadbike.css">
+  <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top cv-navbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="images/cycleverse-logo.png" alt="CycleVerse Logo" class="cv-logo">
+      </a>
+
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#cvNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="cvNav">
+        <ul class="navbar-nav mx-auto gap-lg-4">
+
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">
+              Bicycles
+            </a>
+            <ul class="dropdown-menu cv-dropdown">
+              <li><a class="dropdown-item" href="mountain.html">Mountain Bikes</a></li>
+              <li><a class="dropdown-item" href="roadbike.html">Road Bikes</a></li>
+              <li><a class="dropdown-item" href="electric.html">Electric Bikes</a></li>
+              <li><a class="dropdown-item" href="kids.html">Kids Bikes</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              Brands
+            </a>
+            <ul class="dropdown-menu cv-dropdown">
+              <li><a class="dropdown-item" href="brand.html?name=Trek">Trek</a></li>
+              <li><a class="dropdown-item" href="brand.html?name=Giant">Giant</a></li>
+              <li><a class="dropdown-item" href="brand.html?name=Cannondale">Cannondale</a></li>
+              <li><a class="dropdown-item" href="brand.html?name=Specialized">Specialized</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+
+        <form class="d-flex align-items-center" onsubmit="return handleSearch(event)">
+          <input class="form-control cv-search-input" type="search" placeholder="Search bikes..." id="searchInput">
+          <button class="btn cv-search-btn" type="submit">
+            <i class="bi bi-search"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="road-hero">
+    <div class="container">
+      <div class="row align-items-center hero-height">
+        <div class="col-lg-6 text-white">
+          <h1 class="hero-title">
+            Speed Meets <span>Precision</span>
+          </h1>
+          <p class="hero-text">
+            Built for endurance, speed and smooth city-to-highway rides.
+          </p>
+          <a href="#bikes" class="btn btn-explore">Explore Road Bikes</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section class="mountain-products py-5" id="bikes">
+    <div class="container">
+
+      <div class="text-center mb-5">
+        <h2 class="section-title">Road Bikes</h2>
+        <p class="section-subtitle">Engineered for speed & efficiency</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="filters mb-4 text-center">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="race">Race</button>
+        <button class="filter-btn" data-filter="endurance">Endurance</button>
+        <button class="filter-btn" data-filter="city">City</button>
+      </div>
+
+      <!-- Dynamic Cards -->
+      <div class="row g-4" id="cycleContainer">
+        <!-- Cards will load here -->
+      </div>
+
+      <div class="text-center mt-5">
+        <a href="#" class="btn btn-view-more">View More Bikes</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="cv-footer">
+    <div class="cv-footer-bottom text-center">
+      <p>© 2026 CycleVerse. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/search.js"></script>
+
+  <!-- ✅ FETCH SCRIPT -->
+  <script>
+    const container = document.getElementById("cycleContainer");
+
+    async function loadRoadBikes() {
+      try {
+        const res = await fetch("http://localhost:5000/api/cycles/category/roadbike");
+        const cycles = await res.json();
+
+        container.innerHTML = "";
+
+        cycles.forEach(cycle => {
+          container.innerHTML += `
+            <div class="col-md-6 col-lg-4 bike-item" data-category="all">
+              <div class="bike-card">
+                <img src="http://localhost:5000/uploads/${cycle.image}" class="img-fluid" alt="${cycle.name}">
+                <h4>${cycle.name}</h4>
+                <p class="price">${cycle.price}</p>
+                <a href="cycle-view.html?id=${cycle._id}" class="btn btn-outline">
+                  View Details
+                </a>
+              </div>
+            </div>
+          `;
+        });
+
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
+    loadRoadBikes();
+  </script>
+
+</body>
+
+</html>

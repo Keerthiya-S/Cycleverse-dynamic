@@ -1,0 +1,95 @@
+
+.bike-view {
+  padding: 120px 0 80px;
+}
+
+
+.bike-image-box {
+  width: 100%;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bike-image-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;  
+}
+
+
+.bike-view h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: white;
+}
+.bike-view p{
+     color: white;
+}
+.bike-view .price {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #ef4444;
+  margin: 12px 0;
+}
+
+.bike-colors {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.color-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  cursor: pointer;
+}
+
+.bike-specs {
+  margin-top: 15px;
+  padding-left: 18px;
+}
+
+.bike-specs li {
+  margin-bottom: 6px;
+  color: #cbd5e1;
+}
+#buyNowBtn{
+  background: var(--cv-gradient) !important;
+  border: none !important;
+  transition: all 0.35s ease;
+}
+
+#buyNowBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(255, 75, 43, 0.45);
+}
+@media (max-width: 768px) {
+
+  .bike-view {
+    padding-top: 90px;
+    text-align: center;
+  }
+
+  .bike-image-box {
+    height: 280px;
+    margin-bottom: 20px;
+  }
+
+  .bike-colors {
+    justify-content: center;
+  }
+
+  .bike-specs {
+    text-align: left;
+    display: inline-block;
+  }
+
+  .bike-view h1 {
+    font-size: 1.7rem;
+  }
+
+}

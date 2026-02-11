@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | CycleVerse</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/contact.css">
+  <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top cv-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">
+      <img src="images/cycleverse-logo.png" class="cv-logo">
+    </a>
+
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#cvNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="cvNav">
+      <ul class="navbar-nav mx-auto gap-lg-4">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Bicycles</a>
+          <ul class="dropdown-menu cv-dropdown">
+            <li><a class="dropdown-item" href="mountain.html">Mountain</a></li>
+            <li><a class="dropdown-item" href="roadbike.html">Road</a></li>
+            <li><a class="dropdown-item" href="electric.html">Electric</a></li>
+            <li><a class="dropdown-item" href="kids.html">Kids</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Brands</a>
+          <ul class="dropdown-menu cv-dropdown">
+            <li><a class="dropdown-item" href="brand.html?name=Trek">Trek</a></li>
+              <li><a class="dropdown-item" href="brand.html?name=Giant">Giant</a></li>
+              <li><a class="dropdown-item" href="brand.html?name=Cannondale">Cannondale</a></li>
+              <li><a class="dropdown-item" href="brand.html?name=Specialized">Specialized</a></li>
+
+          </ul>
+        </li>
+
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+      </ul>
+
+      <form class="d-flex align-items-center" onsubmit="return handleSearch(event)">
+          <input class="form-control cv-search-input" type="search" placeholder="Search bikes..." id="searchInput">
+          <button class="btn cv-search-btn" type="submit">
+            <i class="bi bi-search"></i>
+          </button>
+        </form>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="contact-hero">
+  <div class="container text-center text-white">
+    <h1 class="contact-title">Contact <span>CycleVerse</span></h1>
+    <p class="contact-subtitle">
+      We’re here to help you ride better, faster & safer.
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT SECTION -->
+<section class="contact-section">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+
+      <!-- LEFT INFO -->
+      <div class="col-lg-5 text-white contact-info">
+        <h3>Get in Touch</h3>
+        <p>Have questions about bikes, orders, or service? Reach us anytime.</p>
+
+        <ul>
+          <li>
+            <i class="bi bi-geo-alt"></i>
+            <span>Chennai, Tamil Nadu, India</span>
+          </li>
+          <li>
+            <i class="bi bi-telephone"></i>
+            <span>+91 98765 43210</span>
+          </li>
+          <li>
+            <i class="bi bi-envelope"></i>
+            <span>support@cycleverse.com</span>
+          </li>
+          <li>
+            <i class="bi bi-clock"></i>
+            <span>Mon – Sat : 9 AM – 7 PM</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- RIGHT FORM -->
+      <div class="col-lg-7">
+        <form class="contact-form">
+          <div class="row g-4">
+            <div class="col-md-6">
+              <input type="text" placeholder="Your Name" required>
+            </div>
+            <div class="col-md-6">
+              <input type="email" placeholder="Your Email" required>
+            </div>
+            <div class="col-12">
+              <input type="text" placeholder="Subject">
+            </div>
+            <div class="col-12">
+              <textarea rows="5" placeholder="Your Message"></textarea>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn-submit">
+                Send Message
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section class="contact-map">
+  <iframe
+    src="https://www.google.com/maps?q=New%20York%20City%2C%20USA&t=&z=13&ie=UTF8&iwloc=&output=embed"
+    loading="lazy">
+  </iframe>
+</section>
+
+<footer class="cv-footer">
+    <div class="cv-newsletter container text-center">
+      <h2>Stay in the Loop</h2>
+      <p>Be the First to Know About New Bikes, Sales, and Exclusive Deals.</p>
+
+      <div class="cv-newsletter-box">
+        <input type="email" placeholder="Your Email Address">
+        <button>Subscribe Now</button>
+      </div>
+
+      <small>Join to get 10% off your next order. Unsubscribe anytime.</small>
+    </div>
+    <div class="cv-divider"></div>
+    <div class="container cv-footer-links">
+      <div class="row g-4 text-center text-md-start">
+
+        <div class="col-md-3">
+          <h5>Shop</h5>
+          <ul>
+            <li>Bicycles</li>
+            <li>Brands</li>
+            <li>Best Sellers</li>
+            <li>Accessories</li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>Help</h5>
+          <ul>
+            <li>Delivery Info</li>
+            <li>Returns & Warranty</li>
+            <li>Assembly & Service</li>
+            <li>FAQs</li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>Company</h5>
+          <ul>
+            <li>About Us</li>
+            <li>Our Services</li>
+            <li>Blog</li>
+            <li>Careers</li>
+          </ul>
+        </div>
+        <div class="col-md-3">
+          <h5>Contact</h5>
+          <ul>
+            <li>Support Center</li>
+            <li>Store Locator</li>
+            <li>+1-800-123-4567</li>
+            <li>support@cycleverse.com</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <div class="cv-divider"></div>
+    <!-- Bottom -->
+    <div class="cv-footer-bottom text-center">
+      <p>10-DAY RETURNS &nbsp; | &nbsp; E-SAFE PAYMENTS &nbsp; | &nbsp; WARRANTY PROTECTED</p>
+      <p class="mb-0">© 2026 CycleVerse. All rights reserved.</p>
+    </div>
+  </footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+ <script src="js/search.js"></script>
+</body>
+</html>

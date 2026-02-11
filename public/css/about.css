@@ -1,0 +1,233 @@
+.about-hero {
+  height: 90vh;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.about-slide {
+  height: 90vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+
+.about-slide::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(2,6,23,0.9),
+    rgba(2,6,23,0.55)
+  );
+}
+
+.slide-1 { background-image: url("../images/about-bg1.jpg"); }
+.slide-2 { background-image: url("../images/about-bg2.jpg"); }
+.slide-3 { background-image: url("../images/about-bg3.jpg"); }
+
+
+.about-hero-content {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translateY(-50%);
+  color: #fff;
+  max-width: 520px;
+  z-index: 2;
+
+  opacity: 0;
+  animation: slideFade 0.8s ease forwards;
+}
+
+.carousel-item.active .about-hero-content {
+  animation-delay: 0.25s;
+}
+
+.about-hero-content h1 {
+  font-size: 3.2rem;
+  font-weight: 800;
+}
+
+.about-hero-content span {
+  background: var(--cv-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-hero-content p {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  margin-top: 12px;
+}
+
+@keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.carousel-fade .carousel-item {
+  transition: opacity 0.6s ease-in-out;
+}
+.about-intro {
+  background: #0b0f19;
+}
+.about-text {
+  color: #e5e7eb;
+  font-size: 1.05rem;
+}
+.about-text.muted {
+  color: #9ca3af;
+}
+.about-img {
+  max-width: 100%;
+  border-radius: 16px;
+}
+
+
+.about-stats {
+  background: linear-gradient(135deg, #0f172a, #020617);
+  padding: 60px 0;
+}
+.stat-item h3 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  background: var(--cv-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.stat-item p {
+  color: #cbd5e1;
+  margin-top: 6px;
+}
+
+.about-journey {
+  background: #020617;
+}
+
+.journey-timeline {
+  position: relative;
+  max-width: 700px;
+  margin: auto;
+  padding-left: 30px;
+}
+
+.journey-timeline::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: rgba(255,255,255,0.12);
+}
+
+.journey-item {
+  position: relative;
+  padding: 18px 0 18px 30px;
+}
+
+.journey-dot {
+  position: absolute;
+  left: 0;
+  top: 26px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--cv-gradient);
+  box-shadow: 0 0 12px rgba(255,75,43,0.7);
+}
+
+.journey-content h6 {
+  margin: 0;
+  font-weight: 600;
+  color: #f87171;
+}
+
+.journey-content p {
+  margin: 6px 0 0;
+  color: #e5e7eb;
+  font-size: 0.95rem;
+}
+
+
+@media (max-width: 768px) {
+  .journey-timeline {
+    padding-left: 26px;
+  }
+}
+
+
+.about-mission {
+  background: var(--cv-gradient);
+  padding: 80px 0;
+  color: #fff;
+}
+
+.mission-btn {
+  border: 2px solid #fff;
+  color: #fff;
+  padding: 12px 38px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  background: transparent;
+  transition: 0.3s ease;
+}
+
+.mission-btn:hover {
+  background: #020617;
+  border-color: transparent;
+  color: #fff;
+}
+
+.about-mission h2 {
+  font-weight: 800;
+}
+.about-mission p {
+  max-width: 600px;
+  margin: 12px auto;
+  opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+  .about-text {
+    font-size: 0.95rem;
+  }
+  .stat-item h3 {
+    font-size: 1.6rem;
+  }
+  .journey-item {
+    flex-direction: column;
+    gap: 6px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .about-hero,
+  .about-slide {
+    height: 70vh;
+  }
+
+  .about-hero-content {
+    max-width: 80%;
+    text-align: center;
+  }
+
+  .about-hero-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .about-hero-content p {
+    font-size: 0.95rem;
+  }
+}

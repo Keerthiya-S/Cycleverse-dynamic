@@ -1,0 +1,237 @@
+
+.road-hero {
+  background: url("../images/roadbike-bg.jpg") center/cover no-repeat;
+  position: relative;
+}
+
+.road-hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(2, 6, 23, 0.9),
+    rgba(2, 6, 23, 0.4)
+  );
+}
+
+.road-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.road-hero .hero-height {
+  min-height: 90vh !important;
+}
+.hero-title {
+  font-size: 3.2rem;
+  font-weight: 800;
+}
+
+.hero-title span {
+  background: linear-gradient(135deg, #ff416c, #ff9a44);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-text {
+  color: #cbd5e1;
+  max-width: 480px;
+  margin: 20px 0 30px;
+}
+.btn-explore {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: 0;
+}
+
+.mountain-products {
+  background: radial-gradient(circle at top, #0b1220, #020617);
+}
+
+.section-title {
+  color: #fff;
+  font-weight: 800;
+}
+
+.section-subtitle {
+  color: #94a3b8;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.filter-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 8px 18px;
+  cursor: pointer;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  border-color: transparent;
+}
+.bike-card {
+  background: transparent;
+  border-radius: 20px;
+  padding: 26px;
+  text-align: center;
+
+  border: 2px solid transparent;
+  background-image:
+    linear-gradient(#020617, #020617),
+    linear-gradient(135deg, #ff416c, #ff4b2b, #ff9a44);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  transition: 0.4s ease;
+}
+
+.bike-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 50px rgba(255, 75, 43, 0.4);
+}
+
+.bike-card img {
+  height: 180px;
+  object-fit: contain;
+  margin-bottom: 16px;
+}
+
+.bike-card h4 {
+  color: #fff;
+}
+
+.price {
+  color: #ffb4a2;
+  font-weight: 600;
+}
+
+.btn-outline {
+  border: 1px solid #ff4b2b;
+  color: #fff;
+  margin-top: 12px;
+}
+
+.btn-outline:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 35px rgba(255, 75, 43, 0.6);
+  color: #fff;
+}
+
+.btn-view-more {
+  background: transparent;
+  border: 2px solid transparent;
+  color: #fff;
+  padding: 12px 34px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  background-image:
+    linear-gradient(#020617, #020617),
+    linear-gradient(135deg, #ff416c, #ff4b2b, #ff9a44);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  transition: all 0.35s ease;
+}
+
+.btn-view-more:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 35px rgba(255, 75, 43, 0.6);
+  color: #fff;
+}
+
+.bike-item {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+
+@media (max-width: 576px) {
+
+  .road-hero {
+    background-position: center right;
+  }
+
+  .road-hero .hero-height {
+    min-height: 70vh !important;
+  }
+
+  .road-hero .row {
+    margin-top: 20px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .road-hero .col-lg-6 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .road-hero .btn-explore {
+    margin-top: 10px;
+  }
+
+  .hero-title {
+    font-size: 2.1rem;
+    line-height: 1.2;
+  }
+
+  .hero-text {
+    font-size: 0.95rem;
+    max-width: 100%;
+  }
+
+  .btn-explore {
+    padding: 10px 22px;
+    font-size: 0.9rem;
+  }
+
+  .section-title {
+    font-size: 1.7rem;
+  }
+
+  .section-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .filters {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .filter-btn {
+    padding: 7px 14px;
+    font-size: 0.85rem;
+  }
+
+  .bike-card {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .bike-card img {
+    height: 150px;
+  }
+
+  .bike-card h4 {
+    font-size: 1.05rem;
+  }
+
+  .price {
+    font-size: 1rem;
+  }
+
+  .btn-outline {
+    font-size: 0.85rem;
+    padding: 7px 16px;
+  }
+}

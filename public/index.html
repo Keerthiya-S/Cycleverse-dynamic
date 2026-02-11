@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>CycleVerse | Premium Bicycles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top cv-navbar">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="images/cycleverse-logo.png" alt="CycleVerse Logo" class="cv-logo">
+      </a>
+
+      <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#cvNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="cvNav">
+        <ul class="navbar-nav mx-auto gap-lg-4">
+
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+
+          <!-- Bicycles Dropdown -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              Bicycles
+            </a>
+            <ul class="dropdown-menu cv-dropdown">
+              <li><a class="dropdown-item" href="mountain.html">Mountain Bikes</a></li>
+              <li><a class="dropdown-item" href="roadbike.html">Road Bikes</a></li>
+              <li><a class="dropdown-item" href="electric.html">Electric Bikes</a></li>
+              <li><a class="dropdown-item" href="kids.html">Kids Bikes</a></li>
+            </ul>
+          </li>
+
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+              Brands
+            </a>
+            <ul class="dropdown-menu cv-dropdown">
+              <li><a class="dropdown-item" href="brand.html?name=Trek">Trek</a></li>
+              <li><a class="dropdown-item" href="brand.html?name=Giant">Giant</a></li>
+              <li><a class="dropdown-item" href="brand.html?name=Cannondale">Cannondale</a></li>
+              <li><a class="dropdown-item" href="brand.html?name=Specialized">Specialized</a></li>
+
+
+            </ul>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+        <form class="d-flex align-items-center" onsubmit="return handleSearch(event)">
+          <input class="form-control cv-search-input" type="search" placeholder="Search bikes..." id="searchInput">
+          <button class="btn cv-search-btn" type="submit">
+            <i class="bi bi-search"></i>
+          </button>
+        </form>
+
+
+      </div>
+    </div>
+
+  </nav>
+
+  <!-- HERO -->
+  <section class="cv-hero">
+    <div class="container h-100">
+      <div class="row align-items-center h-100">
+        <div class="col-lg-6 text-white">
+          <h1 class="cv-title">
+            Find Your<br><span>Perfect Ride</span>
+          </h1>
+          <p class="cv-subtitle">
+            All Brands. All Terrains. One Destination.
+          </p>
+
+          <div class="d-flex gap-3 mt-4">
+            <a href="mountain.html" class="btn btn-danger px-4 py-2">Shop Now</a>
+            <a href="electric.html" class="btn btn-outline-light px-4 py-2">Explore Bikes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="explore-cycles">
+    <div class="container">
+      <h2 class="section-title">Explore Cycles</h2>
+      <p class="section-subtitle">Find the perfect ride for your lifestyle</p>
+
+      <div class="explore-wrapper">
+
+        <div class="cycle-tabs">
+          <button class="cycle-tab active" data-type="mtb">Mountain Bikes</button>
+          <button class="cycle-tab" data-type="road">Road Bikes</button>
+          <button class="cycle-tab" data-type="electric">Electric Bikes</button>
+          <button class="cycle-tab" data-type="kids">Kids Bikes</button>
+        </div>
+
+        <div class="cycle-display">
+          <div class="cycle-overlay">
+            <h3 id="cycleTitle">Mountain Bikes</h3>
+            <p id="cycleDesc">
+              Built for rough terrains, trails and off-road adventures with
+              maximum control and durability.
+            </p>
+            <a href="mountain.html" class="cycle-btn">Explore MTB</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- BRANDS SECTION -->
+  <section class="cv-brands py-5">
+    <div class="container">
+
+
+      <div class="text-center mb-5">
+        <h2 class="cv-section-title lightning">
+          <span class="word">
+            <span>T</span><span>o</span><span>p</span>
+          </span>
+
+          <span class="space">&nbsp;</span>
+
+          <span class="word">
+            <span>B</span><span>i</span><span>c</span><span>y</span><span>c</span><span>l</span><span>e</span>
+          </span>
+
+          <span class="space">&nbsp;</span>
+
+          <span class="word">
+            <span>B</span><span>r</span><span>a</span><span>n</span><span>d</span><span>s</span>
+          </span>
+        </h2>
+
+
+        <p class="cv-section-subtitle">
+          Ride with the world’s most trusted bicycle manufacturers
+        </p>
+
+      </div>
+
+
+      <div class="row g-4 justify-content-center">
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="brand-card">
+            <img src="images/Trek-Bike-Logo.png" alt="Trek">
+            <span>Performance Leaders</span>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="brand-card">
+            <img src="images/Giant.png" alt="Giant">
+            <span>Built for Speed</span>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="brand-card">
+            <img src="images/specialized.png" alt="Specialized">
+            <span>Innovation Driven</span>
+          </div>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <div class="brand-card">
+            <img src="images/cannondale.png" alt="Cannondale">
+            <span>Engineered Excellence</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <!-- SERVICES HERO SECTION -->
+  <section class="cv-services-hero">
+    <div class="container">
+      <div class="row justify-content-end">
+        <div class="col-lg-6">
+          <div class="cv-services-box text-white">
+            <h2 class="cv-services-title">
+              Beyond Just<br><span>Bicycles</span>
+            </h2>
+
+            <p class="cv-services-text">
+              From expert guidance to doorstep delivery and after-sales support,
+              CycleVerse ensures a smooth and premium riding experience.
+            </p>
+
+            <a href="about.html" class="btn btn-danger px-4 py-2 mt-3">
+              Explore Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- best seller -->
+  <section class="best-sellers-section" id="bestsellers">
+    <h2 class="section-title">Explore Best Sellers</h2>
+
+    <div class="carousel-wrapper">
+      <button class="carousel-btn left" onclick="moveCarousel(-1)">❮</button>
+
+      <div class="carousel-container">
+        <div class="carousel-track" id="carouselTrack">
+
+
+          <div class="glass-card">
+            <img src="images/cycle-1.png" alt="">
+            <h4>Mountain Pro X</h4>
+            <p>₹18,999</p>
+          </div>
+
+
+          <div class="glass-card">
+            <img src="images/cycle2.png" alt="">
+            <h4>Urban Rider</h4>
+            <p>₹14,499</p>
+          </div>
+
+
+          <div class="glass-card">
+            <img src="images/cycle3.png" alt="">
+            <h4>Speedster 21</h4>
+            <p>₹22,999</p>
+          </div>
+
+
+          <div class="glass-card">
+            <img src="images/cycle4.png" alt="">
+            <h4>Trail Blazer</h4>
+            <p>₹19,799</p>
+          </div>
+
+
+          <div class="glass-card">
+            <img src="images/cycle5.png" alt="">
+            <h4>Eco Glide</h4>
+            <p>₹12,999</p>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="carousel-btn right" onclick="moveCarousel(1)">❯</button>
+    </div>
+  </section>
+
+  <!-- WHY + FAQ SECTION -->
+  <section class="cv-why-faq">
+    <div class="container">
+      <div class="row align-items-start g-5">
+
+
+        <div class="col-lg-7">
+          <h2 class="cv-why-title">
+            Why <span>CycleVerse</span>?
+          </h2>
+          <p class="cv-why-subtitle">
+            Anxiety-free ownership backed by trust, service and innovation
+          </p>
+
+          <div class="why-grid">
+
+            <div class="why-card">
+              <h4>70+ Years of Cycling Expertise</h4>
+              <p>Built by professionals with decades of experience in global bicycle innovation.</p>
+            </div>
+
+            <div class="why-card">
+              <h4>Pan-US Warranty Coverage</h4>
+              <p>Register online and enjoy nationwide warranty support across the United States.</p>
+            </div>
+
+            <div class="why-card">
+              <h4>Professional Assembly & Service</h4>
+              <p>Certified service partners ensure safety, tuning and performance.</p>
+            </div>
+
+            <div class="why-card">
+              <h4>20,000+ Partner Network</h4>
+              <p>Retail and service partners ready to support you wherever you ride.</p>
+            </div>
+
+            <div class="why-card">
+              <h4>Customer-First Support</h4>
+              <p>Fast, friendly support that puts riders before transactions.</p>
+            </div>
+
+            <div class="why-card">
+              <h4>Trusted by Millions Globally</h4>
+              <p>Chosen by riders worldwide for reliability, comfort and performance.</p>
+            </div>
+
+          </div>
+        </div>
+
+
+        <div class="col-lg-5">
+          <div class="faq-box">
+            <h3 class="faq-title">FAQs</h3>
+
+            <div class="faq-item active">
+              <button class="faq-question">
+                Do you offer nationwide service?
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                Yes. CycleVerse provides service and support across the US through verified partners.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                How do I activate warranty?
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                Simply register your bicycle online after purchase to activate coverage.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                Are bikes delivered assembled?
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                Partial assembly is done. Final tuning is available via local service partners.
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                Can I return or exchange?
+                <span>+</span>
+              </button>
+              <div class="faq-answer">
+                Yes, subject to our return policy and inspection guidelines.
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <footer class="cv-footer">
+
+    <div class="cv-newsletter container text-center">
+      <h2>Stay in the Loop</h2>
+      <p>Be the First to Know About New Bikes, Sales, and Exclusive Deals.</p>
+
+      <div class="cv-newsletter-box">
+        <input type="email" placeholder="Your Email Address">
+        <button>Subscribe Now</button>
+      </div>
+
+      <small>Join to get 10% off your next order. Unsubscribe anytime.</small>
+    </div>
+
+
+    <div class="cv-divider"></div>
+
+
+    <div class="container cv-footer-links">
+      <div class="row g-4 text-center text-md-start">
+
+        <div class="col-md-3">
+          <h5>Shop</h5>
+          <ul>
+            <li> <a href="mountain.html">Bicycles</a></li>
+            <li> <a href="trek.html">Brands</a></li>
+            <li> <a href="#bestsellers">Best Sellers</a></li>
+            <li>Accessories</li>
+          </ul>
+        </div>
+
+        <div class="col-md-3">
+          <h5>Help</h5>
+          <ul>
+            <li>Delivery Info</li>
+            <li>Returns & Warranty</li>
+            <li>Assembly & Service</li>
+            <li>FAQs</li>
+          </ul>
+        </div>
+
+        <div class="col-md-3">
+          <h5>Company</h5>
+          <ul>
+            <li>About Us</li>
+            <li>Our Services</li>
+            <li>Blog</li>
+            <li>Careers</li>
+          </ul>
+        </div>
+
+        <div class="col-md-3">
+          <h5>Contact</h5>
+          <ul>
+            <li>Support Center</li>
+            <li>Store Locator</li>
+            <li>+1-800-123-4567</li>
+            <li>support@cycleverse.com</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="cv-divider"></div>
+
+    <!-- Bottom -->
+    <div class="cv-footer-bottom text-center">
+      <p>10-DAY RETURNS &nbsp; | &nbsp; E-SAFE PAYMENTS &nbsp; | &nbsp; WARRANTY PROTECTED</p>
+      <p class="mb-0">© 2026 CycleVerse. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const data = {
+      mtb: {
+        title: "Mountain Bikes",
+        desc: "Built for rough terrains, trails and off-road adventures with maximum control and durability.",
+        image: "images/mountain-bike.jpg",
+        btn: "Explore MTB",
+        link: "mountain.html"
+      },
+      road: {
+        title: "Road Bikes",
+        desc: "Lightweight and fast bikes designed for smooth roads and long-distance speed rides.",
+        image: "images/road-bike.jpg",
+        btn: "Explore Road Bikes",
+        link: "roadbike.html"
+      },
+      electric: {
+        title: "Electric Bikes",
+        desc: "Perfect balance of comfort and performance for city rides and light trails.",
+        image: "images/electric-bike.jpg",
+        btn: "Explore Electric",
+        link: "electric.html"
+      },
+      kids: {
+        title: "Kids Bikes",
+        desc: "Safe, colorful and fun bikes designed specially for young riders.",
+        image: "images/kids-bike.png",
+        btn: "Explore Kids Bikes",
+        link: "kids.html"
+      }
+    };
+
+    const tabs = document.querySelectorAll(".cycle-tab");
+    const display = document.querySelector(".cycle-display");
+    const title = document.getElementById("cycleTitle");
+    const desc = document.getElementById("cycleDesc");
+    const btn = document.querySelector(".cycle-btn");
+
+    const defaultType = "mtb";
+
+    // ✅ Initial Load
+    title.textContent = data[defaultType].title;
+    desc.textContent = data[defaultType].desc;
+    btn.textContent = data[defaultType].btn;
+    btn.href = data[defaultType].link;
+    display.style.backgroundImage = `url(${data[defaultType].image})`;
+
+    document
+      .querySelector(`.cycle-tab[data-type="${defaultType}"]`)
+      .classList.add("active");
+
+    // ✅ Tab Click Handling
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((t) => t.classList.remove("active"));
+        tab.classList.add("active");
+
+        const type = tab.dataset.type;
+
+        title.textContent = data[type].title;
+        desc.textContent = data[type].desc;
+        btn.textContent = data[type].btn;
+        btn.href = data[type].link;
+        display.style.backgroundImage = `url(${data[type].image})`;
+      });
+    });
+  </script>
+  <script>
+    const track = document.getElementById("carouselTrack");
+    const cardWidth = 330; // card + gap
+    let isMoving = false;
+
+    function moveCarousel(direction) {
+      if (isMoving) return;
+      isMoving = true;
+
+      if (direction === 1) {
+
+        track.style.transition = "transform 0.45s ease";
+        track.style.transform = `translateX(-${cardWidth * 2}px)`;
+
+        setTimeout(() => {
+          track.appendChild(track.firstElementChild);
+          track.style.transition = "none";
+          track.style.transform = `translateX(-${cardWidth}px)`;
+          isMoving = false;
+        }, 450);
+
+      } else {
+
+        track.style.transition = "none";
+        track.insertBefore(track.lastElementChild, track.firstElementChild);
+        track.style.transform = `translateX(-${cardWidth * 2}px)`;
+
+        requestAnimationFrame(() => {
+          track.style.transition = "transform 0.45s ease";
+          track.style.transform = `translateX(-${cardWidth}px)`;
+        });
+
+        setTimeout(() => {
+          isMoving = false;
+        }, 450);
+      }
+    }
+  </script>
+  <script>
+    document.querySelectorAll(".faq-question").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const item = btn.parentElement;
+
+        document.querySelectorAll(".faq-item").forEach(i => {
+          if (i !== item) i.classList.remove("active");
+        });
+
+        item.classList.toggle("active");
+      });
+    });
+  </script>
+  <script src="js/search.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,129 @@
+:root {
+  --cv-gradient: linear-gradient(135deg, #ff416c, #ff4b2b);
+}
+
+.cv-footer {
+  background: black;
+  color: #ddd;
+  padding-top: 70px;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.cv-newsletter h2 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #ffd6c9;
+}
+
+.cv-newsletter p {
+  color: #f5b7a5;
+  margin-bottom: 25px;
+}
+
+.cv-newsletter-box {
+  display: flex;
+  justify-content: center;
+  max-width: 520px;
+  margin: auto;
+  border-radius: 30px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+}
+
+.cv-newsletter-box input {
+  flex: 1;
+  padding: 14px 18px;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #fff;
+}
+.cv-newsletter-box:focus-within {
+  border: 1px solid rgba(255, 65, 108, 0.9);
+  box-shadow: 0 0 8px rgba(255, 65, 108, 0.5);
+}
+
+.cv-newsletter-box button {
+  padding: 14px 26px;
+  border: none;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #ff416c, #ff9a44);
+  box-shadow: 0 0 25px rgba(255, 65, 108, 0.8);
+}
+
+.cv-newsletter small {
+  display: block;
+  margin-top: 12px;
+  color: #bbb;
+}
+
+.cv-divider {
+  height: 2px;
+  width: 100%;
+  margin: 60px 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #ff416c,
+    #ff9a44,
+    #ff416c,
+    transparent
+  );
+  box-shadow: 0 0 18px rgba(255, 154, 68, 0.8);
+}
+
+.cv-footer-links h5 {
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.cv-footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.cv-footer-links li {
+  margin-bottom: 10px;
+  color: #ccc;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+.cv-footer-links li a {
+  margin-bottom: 10px;
+  color: #ccc;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.cv-footer-links li:hover {
+  color: #ff9a44;
+}
+
+.cv-footer-bottom {
+  padding-bottom: 30px;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+@media (max-width: 768px) {
+  .cv-newsletter h2 {
+    font-size: 1.8rem;
+  }
+
+  .cv-newsletter-box {
+    flex-direction: column;
+  }
+
+  .cv-newsletter-box button {
+    width: 100%;
+    border-radius: 0;
+  }
+
+  .cv-divider {
+    margin: 40px 0;
+  }
+}
