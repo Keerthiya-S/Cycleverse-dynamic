@@ -20,27 +20,13 @@
     }
 
     .checkout-wrapper {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
+      padding: 40px 0;
     }
 
     .checkout-card {
       background: #111827;
       border-radius: 14px;
-      padding: 30px;
-    }
-
-    .checkout-img {
-      width: 100%;
-      max-height: 280px;
-      object-fit: contain;
-    }
-
-    .price {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #22c55e;
+      padding: 25px;
     }
 
     .form-control {
@@ -56,46 +42,19 @@
       border-color: #ef4444;
     }
 
-    ::placeholder { 
-      color: rgba(255, 255, 255, 0.548) !important;
-    } 
-    ::-ms-input-placeholder { 
-      color: rgba(255, 255, 255, 0.6); 
+    ::placeholder {
+      color: rgba(255, 255, 255, 0.6) !important;
     }
-    /* ✅ MOBILE FIX — ONLY CENTERING */
-    @media (max-width: 768px) {
 
-      /* remove side gap */
-      .container {
-        padding-left: 0;
-        padding-right: 0;
-      }
+    .total-box {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #22c55e;
+    }
 
-      .checkout-wrapper {
-        align-items: flex-start;
-        padding: 20px 0;
-      }
-
-      .row {
-        margin-left: 0;
-        margin-right: 0;
-        justify-content: center;
-      }
-
-      .col-lg-6 {
-        display: flex;
-        justify-content: center;
-      }
-
-      .checkout-card {
-        width: 100%;
-        max-width: 420px;
-        padding: 20px;
-      }
-
-      .checkout-img {
-        max-height: 200px;
-      }
+    img {
+      max-height: 150px;
+      object-fit: contain;
     }
   </style>
 </head>
@@ -103,17 +62,29 @@
 <body>
 
   <div class="container checkout-wrapper">
-    <div class="row g-3 w-100">
 
-      <div class="col-lg-6">
-        <div class="checkout-card text-center">
-          <img id="bikeImage" class="checkout-img mb-3">
-          <h3 id="bikeName"></h3>
-          <p class="price" id="bikePrice"></p>
+    <div class="row">
+
+      <!-- LEFT SIDE – PRODUCTS -->
+      <div class="col-lg-7 mb-4">
+        <div class="checkout-card">
+          <h4 class="mb-3">Order Summary</h4>
+
+          <!-- PRODUCTS WILL LOAD HERE -->
+          <div id="checkoutProducts"></div>
+
+          <hr>
+
+          <div class="d-flex justify-content-between total-box">
+            <span>Total:</span>
+            <span>₹ <span id="checkoutTotal">0</span></span>
+          </div>
+
         </div>
       </div>
 
-      <div class="col-lg-6">
+      <!-- RIGHT SIDE – DELIVERY FORM -->
+      <div class="col-lg-5">
         <div class="checkout-card">
           <h4 class="mb-3">Delivery Details</h4>
 
@@ -123,15 +94,17 @@
           <input type="text" class="form-control mb-3" placeholder="City">
           <input type="text" class="form-control mb-3" placeholder="ZIP Code">
 
-          <button class="btn btn-danger w-100 mt-2">
+          <button id="placeOrderBtn" class="btn btn-danger w-100 mt-3">
             Place Order
           </button>
         </div>
       </div>
 
     </div>
+
   </div>
 
   <script src="../js/checkout.js"></script>
+
 </body>
 </html>

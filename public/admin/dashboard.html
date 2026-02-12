@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>CycleVerse Admin Dashboard</title>
@@ -20,15 +21,17 @@
       border-radius: 12px;
     }
 
-    .form-control, .form-select {
+    .form-control,
+    .form-select {
       background: #0f172a;
       color: white;
       border: 1px solid #334155;
     }
 
-    .form-control:focus, .form-select:focus {
+    .form-control:focus,
+    .form-select:focus {
       border-color: #22c55e;
-      box-shadow: 0 0 0 0.2rem rgba(34,197,94,0.25);
+      box-shadow: 0 0 0 0.2rem rgba(34, 197, 94, 0.25);
       background: #0f172a;
       color: white;
     }
@@ -67,95 +70,116 @@
     .table thead {
       background: #1e293b;
     }
-
   </style>
 </head>
 
 <body class="p-4">
 
-<div class="container">
+  <div class="container">
 
-  <h2 class="mb-4 text-center">🚴 CycleVerse Admin Dashboard</h2>
+    <h2 class="mb-4 text-center">🚴 CycleVerse Admin Dashboard</h2>
 
-  <!-- FORM CARD -->
-  <div class="card p-4 mb-5">
-    <form id="cycleForm" enctype="multipart/form-data">
+    <!-- FORM CARD -->
+    <div class="card p-4 mb-5">
+      <form id="cycleForm" enctype="multipart/form-data">
 
-      <div class="row g-3">
+        <div class="row g-3">
 
-        <div class="col-md-6">
-          <input type="text" name="name" class="form-control" placeholder="Cycle Name" required>
+          <div class="col-md-6">
+            <input type="text" name="name" class="form-control" placeholder="Cycle Name" required>
+          </div>
+
+          <div class="col-md-6">
+            <select name="category" class="form-select" required>
+              <option value="">Select Category</option>
+              <option value="mountain">Mountain</option>
+              <option value="roadbike">Road Bike</option>
+              <option value="electric">Electric</option>
+              <option value="kids">Kids</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <input type="text" name="brand" class="form-control" placeholder="Brand" required>
+          </div>
+
+          <div class="col-md-6">
+            <input type="text" name="price" class="form-control" placeholder="Price (₹)" required>
+          </div>
+
+          <div class="col-12">
+            <textarea name="description" class="form-control" rows="2" placeholder="Description"></textarea>
+          </div>
+
+          <div class="col-md-6">
+            <input type="file" name="image" class="form-control">
+          </div>
+
+          <div class="col-md-6">
+            <input type="text" name="colors" class="form-control" placeholder="red, blue, black">
+          </div>
+
+          <div class="col-12">
+            <input type="text" name="specs" class="form-control" placeholder="Hydraulic Brakes, 29inch Wheels">
+          </div>
+
+          <div class="col-12 text-end">
+            <button type="submit" class="btn btn-success me-2" id="submitBtn">
+              Add Cycle
+            </button>
+            <button type="button" class="btn btn-secondary d-none" id="cancelEdit">
+              Cancel
+            </button>
+          </div>
+
         </div>
 
-        <div class="col-md-6">
-          <select name="category" class="form-select" required>
-            <option value="">Select Category</option>
-            <option value="mountain">Mountain</option>
-            <option value="roadbike">Road Bike</option>
-            <option value="electric">Electric</option>
-            <option value="kids">Kids</option>
-          </select>
-        </div>
-
-        <div class="col-md-6">
-          <input type="text" name="brand" class="form-control" placeholder="Brand" required>
-        </div>
-
-        <div class="col-md-6">
-          <input type="text" name="price" class="form-control" placeholder="Price (₹)" required>
-        </div>
-
-        <div class="col-12">
-          <textarea name="description" class="form-control" rows="2" placeholder="Description"></textarea>
-        </div>
-
-        <div class="col-md-6">
-          <input type="file" name="image" class="form-control">
-        </div>
-
-        <div class="col-md-6">
-          <input type="text" name="colors" class="form-control" placeholder="red, blue, black">
-        </div>
-
-        <div class="col-12">
-          <input type="text" name="specs" class="form-control" placeholder="Hydraulic Brakes, 29inch Wheels">
-        </div>
-
-        <div class="col-12 text-end">
-          <button type="submit" class="btn btn-success me-2" id="submitBtn">
-            Add Cycle
-          </button>
-          <button type="button" class="btn btn-secondary d-none" id="cancelEdit">
-            Cancel
-          </button>
-        </div>
-
-      </div>
-
-    </form>
-  </div>
-
-
-  <!-- TABLE -->
-  <div class="card p-3">
-    <div class="table-responsive">
-      <table class="table table-bordered align-middle text-center">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Brand</th>
-            <th>Price</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody id="cycleTable"></tbody>
-      </table>
+      </form>
     </div>
+
+    <!-- ORDERS SECTION -->
+    <div class="card p-3 mt-5">
+      <h4 class="mb-3">🛒 Customer Orders</h4>
+
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle text-center">
+          <thead>
+            <tr>
+              <th>Customer</th>
+              <th>Phone</th>
+              <th>Cycle Name</th>
+              <th>Price</th>
+              <th>City</th>
+              <th>Date</th>
+
+            </tr>
+          </thead>
+          <tbody id="orderTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="card p-3">
+      <div class="table-responsive">
+        <table class="table table-bordered align-middle text-center">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Brand</th>
+              <th>Price</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="cycleTable"></tbody>
+        </table>
+      </div>
+    </div>
+
   </div>
 
-</div>
-
-<script src="dashboard.js"></script>
+  <script src="dashboard.js"></script>
 </body>
+
 </html>

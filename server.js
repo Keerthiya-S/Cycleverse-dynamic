@@ -19,6 +19,9 @@ mongoose.connect("mongodb://127.0.0.1:27017/cycleverse")
 const cycleRoutes = require("./routes/cycleRoutes");
 app.use("/api/cycles", cycleRoutes);
 
+const orderRoutes = require("./routes/orderRoutes");
+app.use("/api/orders", orderRoutes);
+
 app.listen(5000, () => {
     console.log("Server running at http://localhost:5000");
 });

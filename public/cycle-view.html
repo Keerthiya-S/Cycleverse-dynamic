@@ -63,6 +63,15 @@
 
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="cart.html">
+                            <i class="bi bi-cart3 fs-5"></i>
+                            <span id="cartCount"
+                                class="position-absolute top-0 start-100 translate-middle badge bg-danger">
+                                0
+                            </span>
+                        </a>
+                    </li>
 
                 </ul>
             </div>
@@ -97,6 +106,10 @@
                     <button id="buyNowBtn" class="btn btn-success">
                         Buy Now
                     </button>
+                    <button id="addToCartBtn" class="btn btn-warning ms-2">
+                        Add to Cart
+                    </button>
+
                 </div>
 
             </div>
@@ -161,10 +174,49 @@
                     li.textContent = spec;
                     specList.appendChild(li);
                 });
+// BUY BUTTON
+document.getElementById("buyNowBtn").onclick = function () {
 
-                // BUY BUTTON
-                document.getElementById("buyNowBtn").onclick = function () {
-                    window.location.href = `checkout.html?id=${cycle._id}`;
+    const buyItem = {
+        id: cycle._id,
+        name: cycle.name,
+        price: cycle.price,
+        image: cycle.image,
+        quantity: 1
+    };
+
+    // Overwrite cart with single item
+    localStorage.setItem("cart", JSON.stringify([buyItem]));
+
+    window.location.href = "checkout/checkout.html";
+};
+
+                // ADD TO CART BUTTON
+                document.getElementById("addToCartBtn").onclick = function () {
+
+                    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+                    const item = {
+                        id: cycle._id,
+                        name: cycle.name,
+                        price: cycle.price,
+                        image: cycle.image,
+                        quantity: 1
+                    };
+
+                    const existingItem = cart.find(p => p.id === cycle._id);
+
+                    if (existingItem) {
+                        existingItem.quantity += 1;
+                    } else {
+                        cart.push(item);
+                    }
+
+                    localStorage.setItem("cart", JSON.stringify(cart));
+
+                    updateCartCount();
+
+                    alert("Added to Cart ✅");
                 };
 
             } catch (err) {
@@ -178,6 +230,15 @@
 
     </script>
 
+    <script>
+        function updateCartCount() {
+            const cart = JSON.parse(localStorage.getItem("cart")) || [];
+            document.getElementById("cartCount").textContent = cart.length;
+        }
+
+        updateCartCount();
+
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

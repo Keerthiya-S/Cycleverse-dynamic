@@ -118,3 +118,41 @@ async function editCycle(id) {
     console.error("Edit Error:", error);
   }
 }
+// ==============================
+// LOAD ORDERS (UPDATED FOR MULTIPLE PRODUCTS)
+// ==============================
+
+async function loadOrders() {
+  try {
+    const res = await fetch("http://localhost:5000/api/orders");
+    const orders = await res.json();
+
+    const table = document.getElementById("orderTable");
+    table.innerHTML = "";
+
+    orders.forEach(order => {
+
+      // Combine product names
+      let productList = "";
+      order.products.forEach(p => {
+        productList += `${p.name} (x${p.quantity})<br>`;
+      });
+
+      table.innerHTML += `
+        <tr>
+          <td>${order.customerName}</td>
+          <td>${order.phone}</td>
+          <td>${productList}</td>
+          <td>₹${order.totalAmount}</td>
+          <td>${order.city}</td>
+          <td>${new Date(order.createdAt).toLocaleDateString()}</td>
+        </tr>
+      `;
+    });
+
+  } catch (error) {
+    console.error("Error loading orders:", error);
+  }
+}
+
+loadOrders();
