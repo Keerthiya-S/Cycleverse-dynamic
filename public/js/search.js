@@ -1,34 +1,34 @@
-const bikeSearchData = [
-    // Trek
-    { name: "Trek Domane", url: "view/trek-view.html?id=domane" },
-    { name: "Trek Marlin", url: "view/trek-view.html?id=marlin7" },
+async function handleSearch(e) {
+  e.preventDefault();
 
-    // Giant
-    { name: "Giant Escape 3", url: "view/giant-view.html?id=escape3" },
-    { name: "Giant Talon", url: "view/giant-view.html?id=talon" },
+  const query = document
+    .getElementById("searchInput")
+    .value
+    .trim()
+    .toLowerCase();
 
-    // Cannondale
-    { name: "Cannondale Quick", url: "view/cannondale-view.html?id=quick-4" },
-    { name: "Cannondale Trail", url: "view/cannondale-view.html?id=trail-5" },
+  if (!query) return false;
 
-    // Specialized
-    { name: "Specialized Roubaix", url: "view/specialized-view.html?id=roubaix" },
-    { name: "Specialized Rockhopper", url: "view/specialized-view.html?id=rockhopper" }
-  ];
+  try {
+    const res = await fetch("http://localhost:5000/api/cycles");
+    const cycles = await res.json();
 
-  function handleSearch(e) {
-    e.preventDefault();
-
-    const query = document.getElementById("searchInput").value.trim().toLowerCase();
-    if (!query) return;
-
-    const result = bikeSearchData.find(bike =>
-      bike.name.toLowerCase().includes(query)
+    const result = cycles.find(cycle =>
+      cycle.name.toLowerCase().includes(query) ||
+      cycle.brand.toLowerCase().includes(query) ||
+      cycle.category.toLowerCase().includes(query)
     );
 
     if (result) {
-      window.location.href = result.url;
+      window.location.href = `/view/search-results.html?q=${query}`;
+
     } else {
-      alert("No bike found ");
+      alert("No bike found ❌");
     }
+
+  } catch (error) {
+    console.error("Search failed:", error);
   }
+
+  return false;
+}
