@@ -28,7 +28,7 @@ async function loadResults() {
             <div class="card-body">
               <h5>${product.name}</h5>
               <p>${product.price}</p>
-              <a href="product-view.html?id=${product._id}" class="btn btn-dark">
+              <a href="product-view.html?id=${product._id}" class="btn-outline view-btn">
                 View Details
               </a>
             </div>

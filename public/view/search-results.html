@@ -1,95 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>Search Results | CycleVerse</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- Bootstrap -->
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
-<link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="../css/footer.css">
-<link rel="stylesheet" href="../css/view.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/view.css">
 
 
 </head>
 
 <body>
-<style>
-/* Black page */
-body {
-  background-color: #000 !important;
-  color: #fff !important;
+  <style>
+    /* Black page */
+    body {
+      background-color: #000 !important;
+      color: #fff !important;
+    }
+/* Make columns stretch equally */
+#resultsContainer .col-md-4 {
+  display: flex;
 }
 
-/* FORCE Bootstrap card to black */
+/* Make card full height */
 .card {
-  background-color: #111 !important;
-  border: 2px solid transparent !important;
-  border-radius: 12px !important;
-  position: relative;
-  overflow: hidden;
-  transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
-/* Gradient Border */
-.card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 2px;
-  border-radius: 12px;
-  background: linear-gradient(45deg, #00f0ff, #ff00c8);
-  -webkit-mask: 
-    linear-gradient(#000 0 0) content-box, 
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  pointer-events: none;
-}
 
-/* Remove white inside card body */
+/* Make body stretch */
 .card-body {
-  background-color: #111 !important;
-  color: #fff !important;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-/* Fix image */
-.card-img-top {
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+/* Keep button at bottom */
+.card-body .view-btn {
+  margin-top: auto;
 }
 
-/* Hover glow */
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 0 25px rgba(0,255,255,0.3);
-}
+    /* FORCE Bootstrap card to black */
+    .card {
+      background-color: #111 !important;
+      border: 2px solid transparent !important;
+      border-radius: 12px !important;
+      position: relative;
+      overflow: hidden;
+      transition: 0.3s ease;
+    }
 
-/* Price */
-.price-text {
-  color: #00f0ff !important;
-  font-weight: 600;
-}
+    /* Gradient Border */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      padding: 2px;
+      border-radius: 12px;
+      background: var(--cv-gradient);
 
-/* Button */
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+
+    /* Remove white inside card body */
+    .card-body {
+      background-color: #111 !important;
+      color: #fff !important;
+    }
+
+    /* Fix image */
+    .card-img-top {
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+    }
+
+    /* Hover glow */
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 15px 35px rgba(255, 75, 43, 0.45);
+    }
+
+    /* Price */
+    .price-text {
+      color: #00f0ff !important;
+      font-weight: 600;
+    }
+
+    
+.btn-outline {
+  border: 1px solid #ff4b2b;
+  color: #fff;
+  margin-top: 12px;
+  text-decoration: none;
+}
+.btn-outline:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 35px rgba(255,75,43,0.6);
+  color: #fff;
+  border: none;
+}
 .view-btn {
-  border: 1px solid #00f0ff !important;
-  color: #00f0ff !important;
-  background: transparent !important;
+  background: transparent;
+  border: 2px solid transparent;
+  color: #fff;
+  padding: 12px 34px;
   font-weight: 600;
+  letter-spacing: 0.5px;
+
+  background-image:
+    linear-gradient(#020617, #020617),
+    linear-gradient(135deg, #ff416c, #ff4b2b, #ff9a44);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  transition: all 0.35s ease;
 }
 
-.view-btn:hover {
-  background: #00f0ff !important;
-  color: #000 !important;
+.view-btn :hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 35px rgba(255,75,43,0.6);
+  color: #fff;
 }
-</style>
 
-<!-- NAVBAR -->
+    .search-result {
+      margin-top: 80px !important;
+      font-weight:bold;
+      text-transform: uppercase;
+      text-align: center;
+      
+    }
+  </style>
+
+  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top cv-navbar">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#">
@@ -106,16 +164,16 @@ body {
             <a class="nav-link" href="index.html">Home</a>
           </li>
 
-          
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
               Bicycles
             </a>
             <ul class="dropdown-menu cv-dropdown">
-              <li><a class="dropdown-item" href="mountain.html">Mountain Bikes</a></li>
-              <li><a class="dropdown-item" href="roadbike.html">Road Bikes</a></li>
-              <li><a class="dropdown-item" href="electric.html">Electric Bikes</a></li>
-              <li><a class="dropdown-item" href="kids.html">Kids Bikes</a></li>
+              <li><a class="dropdown-item" href="../mountain.html">Mountain Bikes</a></li>
+              <li><a class="dropdown-item" href="../roadbike.html">Road Bikes</a></li>
+              <li><a class="dropdown-item" href="../electric.html">Electric Bikes</a></li>
+              <li><a class="dropdown-item" href="../kids.html">Kids Bikes</a></li>
             </ul>
           </li>
 
@@ -148,23 +206,25 @@ body {
 
   </nav>
 
-<div class="container mt-5">
+  <section>
+    <div class="container search-result">
 
-  <h2 class="result-title">
-    Search Results
-  </h2>
+      <h2 class="result-title">
+        Search Results
+      </h2>
 
-  <div class="row" id="resultsContainer">
-    <!-- Products will load here -->
-     
-  </div>
+      <div class="row" id="resultsContainer">
+        <!-- Products will load here -->
 
-</div>
+      </div>
 
+    </div>
+  </section>
 
-<!-- Scripts -->
-<script src="/js/search.js"></script>
-<script src="/js/search-results.js"></script>
+  <!-- Scripts -->
+  <script src="/js/search.js"></script>
+  <script src="/js/search-results.js"></script>
 
 </body>
+
 </html>
