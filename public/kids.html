@@ -97,13 +97,14 @@
             <p class="section-subtitle">Lightweight, durable and easy-to-ride cycles</p>
         </div>
 
-        <!-- Filters (optional future DB feature) -->
-        <div class="filters mb-4 text-center">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="boys">Boys</button>
-            <button class="filter-btn" data-filter="girls">Girls</button>
-            <button class="filter-btn" data-filter="balance">Balance</button>
-        </div>
+        <!-- Filters -->
+      <div class="filters mb-4 text-center">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="trek">Trek</button>
+        <button class="filter-btn" data-filter="giant">Giant</button>
+        <button class="filter-btn" data-filter="cannondale">Connondale</button>
+        <button class="filter-btn" data-filter="specialized">Specialized</button>
+      </div>
 
         <!-- Dynamic Cards -->
         <div class="row g-4" id="cycleContainer">
@@ -208,7 +209,7 @@
 
             cycles.forEach(cycle => {
                 container.innerHTML += `
-                    <div class="col-md-4 bike-item" data-category="all">
+                    <div class="col-md-4 bike-item" data-category="${cycle.brand.toLowerCase()}">
                         <div class="bike-card">
                             <img src="http://localhost:5000/uploads/${cycle.image}" 
                                  class="img-fluid" 
@@ -231,6 +232,6 @@
 
     loadKidsBikes();
 </script>
-
+<script src="js/filter.js"></script>
 </body>
 </html>

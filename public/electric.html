@@ -103,9 +103,10 @@
       <!-- Filters -->
       <div class="filters mb-4 text-center">
         <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="city">City</button>
-        <button class="filter-btn" data-filter="mountain">Mountain</button>
-        <button class="filter-btn" data-filter="hybrid">Hybrid</button>
+        <button class="filter-btn" data-filter="trek">Trek</button>
+        <button class="filter-btn" data-filter="giant">Giant</button>
+        <button class="filter-btn" data-filter="cannondale">Connondale</button>
+        <button class="filter-btn" data-filter="specialized">Specialized</button>
       </div>
 
       <!-- Dynamic Cards -->
@@ -211,7 +212,7 @@
 
         cycles.forEach(cycle => {
           container.innerHTML += `
-            <div class="col-md-6 col-lg-4 bike-item" data-category="all">
+            <div class="col-md-6 col-lg-4 bike-item" data-category="${cycle.brand.toLowerCase()}">
               <div class="bike-card">
                 <img src="http://localhost:5000/uploads/${cycle.image}" class="img-fluid" alt="${cycle.name}">
                 <h4>${cycle.name}</h4>
@@ -231,6 +232,6 @@
 
     loadElectricBikes();
   </script>
-
+<script src="js/filter.js"></script>
 </body>
 </html>

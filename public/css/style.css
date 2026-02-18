@@ -735,6 +735,71 @@ html, body {
   padding-bottom: 14px;
 }
 
+/* ===== FOOTER MODAL STYLING ===== */
+
+.modal-content {
+  background: #111 !important;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 0 40px rgba(255, 65, 108, 0.2);
+  overflow: hidden;
+}
+
+/* Gradient Top Border Effect */
+.modal-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--cv-gradient);
+}
+
+/* Modal Header */
+.modal-header {
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  padding: 20px 24px;
+}
+
+/* Gradient Title */
+.modal-title {
+  font-weight: 700;
+  font-size: 22px;
+  background: var(--cv-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Modal Body */
+.modal-body {
+  padding: 24px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #ccc;
+}
+
+/* Close Button */
+.btn-close {
+  filter: invert(1);
+  opacity: 0.8;
+  transition: 0.3s ease;
+}
+
+.btn-close:hover {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+/* Smooth animation */
+.modal.fade .modal-dialog {
+  transform: translateY(30px);
+  transition: 0.3s ease;
+}
+
+.modal.show .modal-dialog {
+  transform: translateY(0);
+}
 
 @media (max-width: 768px) {
   .why-grid {
