@@ -317,7 +317,7 @@
         </div>
 
 
-        <div class="col-lg-5">
+        <div class="col-lg-5" id="faq">
           <div class="faq-box">
             <h3 class="faq-title">FAQs</h3>
 
@@ -394,17 +394,17 @@
             <li> <a href="mountain.html">Bicycles</a></li>
             <li> <a href="trek.html">Brands</a></li>
             <li> <a href="#bestsellers">Best Sellers</a></li>
-            <li>Accessories</li>
+            <li><a href="#" onclick="openModal('accessories')">Accessories</a></li>
           </ul>
         </div>
 
         <div class="col-md-3">
           <h5>Help</h5>
           <ul>
-            <li><a href="#foot" onclick="openModal('delivery')">Delivery Info</a></li>
-            <li><a href="#foot" onclick="openModal('returns')">Returns & Warranty</a></li>
-            <li><a href="#foot" onclick="openModal('assembly')">Assembly & Service</a></li>
-            <li><a href="#foot" onclick="openModal('faqs')">FAQs</a></li>
+            <li><a href="#" onclick="openModal('delivery')">Delivery Info</a></li>
+            <li><a href="#" onclick="openModal('returns')">Returns & Warranty</a></li>
+            <li><a href="#" onclick="openModal('assembly')">Assembly & Service</a></li>
+            <li><a href="#faq">FAQs</a></li>
 
           </ul>
         </div>
@@ -412,10 +412,10 @@
         <div class="col-md-3">
           <h5>Company</h5>
           <ul>
-            <li><a href="#foot" onclick="openModal('about')">About Us</a></li>
-            <li><a href="#foot" onclick="openModal('services')">Our Services</a></li>
-            <li><a href="#foot" onclick="openModal('blog')">Blog</a></li>
-            <li><a href="#foot" onclick="openModal('careers')">Careers</a></li>
+            <li><a href="#" onclick="openModal('about')">About Us</a></li>
+            <li><a href="#" onclick="openModal('services')">Our Services</a></li>
+            <li><a href="#" onclick="openModal('blog')">Blog</a></li>
+            <li><a href="#" onclick="openModal('careers')">Careers</a></li>
 
           </ul>
         </div>
@@ -423,8 +423,9 @@
         <div class="col-md-3">
           <h5>Contact</h5>
           <ul>
-            <li><a href="#foot" onclick="openModal('support')">Support Center</a></li>
-            <li><a href="#foot" onclick="openModal('store')">Store Locator</a></li>
+            <li><a href="#" onclick="openModal('support')">Support Center</a></li>
+            <li><a href="#" onclick="openModal('store')">Store Locator</a></li>
+            
 
             <li>+1-800-123-4567</li>
             <li>support@cycleverse.com</li>
@@ -591,13 +592,13 @@ function openModal(type) {
       title: "Returns & Warranty",
       text: "10-day return policy. All bikes come with manufacturer warranty."
     },
+    accessories:{
+      title: "Accessories",
+      text: "We have top to bottom accessories for all type of bikes."
+    },
     assembly: {
       title: "Assembly & Service",
       text: "Free basic assembly guide included. Professional setup available at extra cost."
-    },
-    faqs: {
-      title: "Frequently Asked Questions",
-      text: "For common questions regarding orders, payments, and warranty, contact support."
     },
     about: {
       title: "About CycleVerse",

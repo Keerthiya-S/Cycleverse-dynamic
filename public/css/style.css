@@ -735,7 +735,7 @@ html, body {
   padding-bottom: 14px;
 }
 
-/* ===== FOOTER MODAL STYLING ===== */
+
 
 .modal-content {
   background: #111 !important;
@@ -745,7 +745,7 @@ html, body {
   overflow: hidden;
 }
 
-/* Gradient Top Border Effect */
+
 .modal-content::before {
   content: "";
   position: absolute;
@@ -756,13 +756,13 @@ html, body {
   background: var(--cv-gradient);
 }
 
-/* Modal Header */
+
 .modal-header {
   border-bottom: 1px solid rgba(255,255,255,0.08);
   padding: 20px 24px;
 }
 
-/* Gradient Title */
+
 .modal-title {
   font-weight: 700;
   font-size: 22px;
@@ -771,7 +771,7 @@ html, body {
   -webkit-text-fill-color: transparent;
 }
 
-/* Modal Body */
+
 .modal-body {
   padding: 24px;
   font-size: 15px;
@@ -779,7 +779,7 @@ html, body {
   color: #ccc;
 }
 
-/* Close Button */
+
 .btn-close {
   filter: invert(1);
   opacity: 0.8;
@@ -791,7 +791,7 @@ html, body {
   transform: rotate(90deg);
 }
 
-/* Smooth animation */
+
 .modal.fade .modal-dialog {
   transform: translateY(30px);
   transition: 0.3s ease;
@@ -836,11 +836,11 @@ html, body {
 
   .carousel-track {
     gap: 16px;
-    transform: translateX(-100%); /* stays same for loop */
+    transform: translateX(-100%); 
   }
 
   .glass-card {
-    min-width: 100%;     /* 🔥 FULL WIDTH FIX */
+    min-width: 100%;    
     max-width: 100%;
     height: auto;
     padding: 22px;
@@ -926,8 +926,7 @@ html, body {
     gap: 12px;
     padding-bottom: 6px;
 
-    /* highlight scroll */
-    scrollbar-width: thin;               /* Firefox */
+    scrollbar-width: thin;               
     scrollbar-color: #ff8a83 transparent;
   }
   .cycle-tab {

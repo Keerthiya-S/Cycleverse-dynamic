@@ -151,35 +151,39 @@
             <li> <a href="mountain.html">Bicycles</a></li>
             <li> <a href="trek.html">Brands</a></li>
             <li> <a href="#bestsellers">Best Sellers</a></li>
-            <li>Accessories</li>
+            <li><a href="#" onclick="openModal('accessories')">Accessories</a></li>
           </ul>
         </div>
 
         <div class="col-md-3">
           <h5>Help</h5>
           <ul>
-            <li>Delivery Info</li>
-            <li>Returns & Warranty</li>
-            <li>Assembly & Service</li>
-            <li>FAQs</li>
+            <li><a href="#" onclick="openModal('delivery')">Delivery Info</a></li>
+            <li><a href="#" onclick="openModal('returns')">Returns & Warranty</a></li>
+            <li><a href="#" onclick="openModal('assembly')">Assembly & Service</a></li>
+            <li><a href="#" onclick="openModal('faqs')">FAQs</a></li>
+
           </ul>
         </div>
 
         <div class="col-md-3">
           <h5>Company</h5>
           <ul>
-            <li>About Us</li>
-            <li>Our Services</li>
-            <li>Blog</li>
-            <li>Careers</li>
+            <li><a href="#" onclick="openModal('about')">About Us</a></li>
+            <li><a href="#" onclick="openModal('services')">Our Services</a></li>
+            <li><a href="#" onclick="openModal('blog')">Blog</a></li>
+            <li><a href="#" onclick="openModal('careers')">Careers</a></li>
+
           </ul>
         </div>
 
         <div class="col-md-3">
           <h5>Contact</h5>
           <ul>
-            <li>Support Center</li>
-            <li>Store Locator</li>
+            <li><a href="#" onclick="openModal('support')">Support Center</a></li>
+            <li><a href="#" onclick="openModal('store')">Store Locator</a></li>
+            
+
             <li>+1-800-123-4567</li>
             <li>support@cycleverse.com</li>
           </ul>
@@ -236,5 +240,78 @@
     loadMountainBikes();
   </script>
   <script src="js/filter.js"></script>
+  <div class="modal fade" id="footerModal" tabindex="-1">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header border-0">
+        <h5 class="modal-title" id="modalTitle"></h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" id="modalContent">
+      </div>
+    </div>
+  </div>
+</div>
+
+  <script>
+function openModal(type) {
+
+  const title = document.getElementById("modalTitle");
+  const content = document.getElementById("modalContent");
+
+  let data = {
+    delivery: {
+      title: "Delivery Information",
+      text: "We deliver across India within 5-7 business days. Free shipping on orders above ₹5000."
+    },
+    returns: {
+      title: "Returns & Warranty",
+      text: "10-day return policy. All bikes come with manufacturer warranty."
+    },
+    accessories:{
+      title: "Accessories",
+      text: "We have top to bottom accessories for all type of bikes."
+    },
+    assembly: {
+      title: "Assembly & Service",
+      text: "Free basic assembly guide included. Professional setup available at extra cost."
+    },
+    about: {
+      title: "About CycleVerse",
+      text: "CycleVerse is your premium destination for mountain, road, and electric bikes."
+    },
+    services: {
+      title: "Our Services",
+      text: "We provide bike servicing, accessories, and performance upgrades."
+    },
+    blog: {
+      title: "CycleVerse Blog",
+      text: "Coming soon! Stay tuned for biking tips and gear reviews."
+    },
+    careers: {
+      title: "Careers",
+      text: "We're always looking for passionate cycling enthusiasts to join our team."
+    },
+    support: {
+      title: "Support Center",
+      text: "Contact us at support@cycleverse.com or call +1-800-123-4567."
+    },
+     faqs: {
+          title: "FAQs",
+          text: "Please check our home page"
+        },
+    store: {
+      title: "Store Locator",
+      text: "Currently available online only. Retail stores coming soon."
+    }
+  };
+
+  title.innerText = data[type].title;
+  content.innerText = data[type].text;
+
+  const modal = new bootstrap.Modal(document.getElementById('footerModal'));
+  modal.show();
+}
+</script>
 </body>
 </html>

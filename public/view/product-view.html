@@ -17,8 +17,9 @@
   <link rel="stylesheet" href="../css/footer.css">
   <link rel="stylesheet" href="../css/view.css">
 </head>
-<body class="bg-dark text-white">
-<!-- NAVBAR -->
+
+<body class="text-white" style="background-color: black;">
+  <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top cv-navbar">
     <div class="container">
       <a class="navbar-brand d-flex align-items-center" href="#">
@@ -33,7 +34,7 @@
         <ul class="navbar-nav mx-auto gap-lg-4">
 
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
+            <a class="nav-link" href="../index.html">Home</a>
           </li>
 
           <!-- Bicycles Dropdown -->
@@ -42,10 +43,10 @@
               Bicycles
             </a>
             <ul class="dropdown-menu cv-dropdown">
-              <li><a class="dropdown-item" href="mountain.html">Mountain Bikes</a></li>
-              <li><a class="dropdown-item" href="roadbike.html">Road Bikes</a></li>
-              <li><a class="dropdown-item" href="electric.html">Electric Bikes</a></li>
-              <li><a class="dropdown-item" href="kids.html">Kids Bikes</a></li>
+              <li><a class="dropdown-item" href="../mountain.html">Mountain Bikes</a></li>
+              <li><a class="dropdown-item" href="../roadbike.html">Road Bikes</a></li>
+              <li><a class="dropdown-item" href="../electric.html">Electric Bikes</a></li>
+              <li><a class="dropdown-item" href="../kids.html">Kids Bikes</a></li>
             </ul>
           </li>
 
@@ -63,17 +64,16 @@
 
             </ul>
           </li>
-          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
           <li class="nav-item">
-                        <a class="nav-link position-relative" href="../cart.html">
-                            <i class="bi bi-cart3 fs-5"></i>
-                            <span id="cartCount"
-                                class="position-absolute top-0 start-100 translate-middle badge bg-danger">
-                                0
-                            </span>
-                        </a>
-                    </li>
+            <a class="nav-link position-relative" href="../cart.html">
+              <i class="bi bi-cart3 fs-5"></i>
+              <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge bg-danger">
+                0
+              </span>
+            </a>
+          </li>
         </ul>
         <form class="d-flex align-items-center" onsubmit="return handleSearch(event)">
           <input class="form-control cv-search-input" type="search" placeholder="Search bikes..." id="searchInput">
@@ -87,53 +87,205 @@
     </div>
 
   </nav>
-<div class="container mt-5 pt-5">
+  <div class="container mt-5 pt-5">
 
-  <div class="row">
+    <div class="row">
 
-    <div class="col-md-6 text-center">
-      <img id="cycleImage" class="img-fluid rounded" style="max-height:400px;">
+      <div class="col-md-6 text-center">
+        <img id="cycleImage" class="img-fluid rounded" style="max-height:400px;">
+      </div>
+
+      <div class="col-md-6">
+        <h2 id="cycleName"></h2>
+        <h4 class="text-warning" id="cyclePrice"></h4>
+        <p id="cycleDescription"></p>
+
+        <div class="mb-3">
+          <strong>Brand:</strong> <span id="cycleBrand"></span><br>
+          <strong>Category:</strong> <span id="cycleCategory"></span>
+        </div>
+
+        <div class="mb-3">
+          <strong>Colors:</strong>
+          <div id="cycleColors"></div>
+        </div>
+
+        <div class="mb-3">
+          <strong>Specifications:</strong>
+          <ul id="cycleSpecs"></ul>
+        </div>
+
+        <button class="btn btn-warning me-2" onclick="addToCart()">Add to Cart</button>
+        <button class="btn btn-success" onclick="buyNow()">Buy Now</button>
+
+      </div>
+
     </div>
-
-    <div class="col-md-6">
-      <h2 id="cycleName"></h2>
-      <h4 class="text-warning" id="cyclePrice"></h4>
-      <p id="cycleDescription"></p>
-
-      <div class="mb-3">
-        <strong>Brand:</strong> <span id="cycleBrand"></span><br>
-        <strong>Category:</strong> <span id="cycleCategory"></span>
-      </div>
-
-      <div class="mb-3">
-        <strong>Colors:</strong>
-        <div id="cycleColors"></div>
-      </div>
-
-      <div class="mb-3">
-        <strong>Specifications:</strong>
-        <ul id="cycleSpecs"></ul>
-      </div>
-
-      <button class="btn btn-warning me-2" onclick="addToCart()">Add to Cart</button>
-      <button class="btn btn-success" onclick="buyNow()">Buy Now</button>
-
-    </div>
-
   </div>
-</div>
+  <footer class="cv-footer">
 
-<script src="../js/product-view.js"></script>
-<script src="../js/search.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-        function updateCartCount() {
-            const cart = JSON.parse(localStorage.getItem("cart")) || [];
-            document.getElementById("cartCount").textContent = cart.length;
+    <div class="cv-newsletter container text-center">
+      <h2>Stay in the Loop</h2>
+      <p>Be the First to Know About New Bikes, Sales, and Exclusive Deals.</p>
+
+      <div class="cv-newsletter-box">
+        <input type="email" placeholder="Your Email Address">
+        <button>Subscribe Now</button>
+      </div>
+
+      <small>Join to get 10% off your next order. Unsubscribe anytime.</small>
+    </div>
+
+
+    <div class="cv-divider"></div>
+
+
+    <div class="container cv-footer-links">
+      <div class="row g-4 text-center text-md-start">
+
+        <div class="col-md-3">
+          <h5>Shop</h5>
+          <ul>
+            <li> <a href="mountain.html">Bicycles</a></li>
+            <li> <a href="trek.html">Brands</a></li>
+            <li> <a href="#bestsellers">Best Sellers</a></li>
+            <li><a href="#" onclick="openModal('accessories')">Accessories</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-3">
+          <h5>Help</h5>
+          <ul>
+            <li><a href="#" onclick="openModal('delivery')">Delivery Info</a></li>
+            <li><a href="#" onclick="openModal('returns')">Returns & Warranty</a></li>
+            <li><a href="#" onclick="openModal('assembly')">Assembly & Service</a></li>
+            <li><a href="#" onclick="openModal('faqs')">FAQs</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-md-3">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="#" onclick="openModal('about')">About Us</a></li>
+            <li><a href="#" onclick="openModal('services')">Our Services</a></li>
+            <li><a href="#" onclick="openModal('blog')">Blog</a></li>
+            <li><a href="#" onclick="openModal('careers')">Careers</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-md-3">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="#" onclick="openModal('support')">Support Center</a></li>
+            <li><a href="#" onclick="openModal('store')">Store Locator</a></li>
+
+
+            <li>+1-800-123-4567</li>
+            <li>support@cycleverse.com</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="cv-divider"></div>
+
+    <!-- Bottom -->
+    <div class="cv-footer-bottom text-center">
+      <p>10-DAY RETURNS &nbsp; | &nbsp; E-SAFE PAYMENTS &nbsp; | &nbsp; WARRANTY PROTECTED</p>
+      <p class="mb-0">© 2026 CycleVerse. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../js/product-view.js"></script>
+  <script src="../js/search.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      document.getElementById("cartCount").textContent = cart.length;
+    }
+
+    updateCartCount();
+
+  </script>
+  <div class="modal fade" id="footerModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="modalTitle"></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body" id="modalContent">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(type) {
+
+      const title = document.getElementById("modalTitle");
+      const content = document.getElementById("modalContent");
+
+      let data = {
+        delivery: {
+          title: "Delivery Information",
+          text: "We deliver across India within 5-7 business days. Free shipping on orders above ₹5000."
+        },
+        returns: {
+          title: "Returns & Warranty",
+          text: "10-day return policy. All bikes come with manufacturer warranty."
+        },
+        accessories: {
+          title: "Accessories",
+          text: "We have top to bottom accessories for all type of bikes."
+        },
+        assembly: {
+          title: "Assembly & Service",
+          text: "Free basic assembly guide included. Professional setup available at extra cost."
+        },
+        faqs: {
+          title: "FAQs",
+          text: "Please check our home page"
+        },
+        about: {
+          title: "About CycleVerse",
+          text: "CycleVerse is your premium destination for mountain, road, and electric bikes."
+        },
+        services: {
+          title: "Our Services",
+          text: "We provide bike servicing, accessories, and performance upgrades."
+        },
+        blog: {
+          title: "CycleVerse Blog",
+          text: "Coming soon! Stay tuned for biking tips and gear reviews."
+        },
+        careers: {
+          title: "Careers",
+          text: "We're always looking for passionate cycling enthusiasts to join our team."
+        },
+        support: {
+          title: "Support Center",
+          text: "Contact us at support@cycleverse.com or call +1-800-123-4567."
+        },
+        store: {
+          title: "Store Locator",
+          text: "Currently available online only. Retail stores coming soon."
         }
+      };
 
-        updateCartCount();
+      title.innerText = data[type].title;
+      content.innerText = data[type].text;
 
-    </script>
+      const modal = new bootstrap.Modal(document.getElementById('footerModal'));
+      modal.show();
+    }
+  </script>
+  
 </body>
+
 </html>
