@@ -12,7 +12,8 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
-
+<!-- AOS CSS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/brand.css">
     <link rel="stylesheet" href="css/footer.css">
@@ -87,13 +88,13 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-lg-6 text-white">
-                <h1 class="brand-title">
-                    <span id="brandName">BRAND</span> BICYCLES
+                <h1 class="brand-title" data-aos="fade-up">
+                    <span id="brandName" data-aos="fade-up">BRAND</span> BICYCLES
                 </h1>
-                <p class="brand-subtitle">
+                <p class="brand-subtitle" data-aos="fade-up">
                     Precision engineered bicycles trusted by professionals and enthusiasts worldwide.
                 </p>
-                <a href="#brand-models" class="btn btn-danger px-4 py-2 mt-3">
+                <a href="#brand-models" class="btn btn-danger px-4 py-2 mt-3" data-aos="fade-up">
                     Explore Brand
                 </a>
             </div>
@@ -149,65 +150,65 @@
  <footer class="cv-footer">
 
     <div class="cv-newsletter container text-center">
-      <h2>Stay in the Loop</h2>
-      <p>Be the First to Know About New Bikes, Sales, and Exclusive Deals.</p>
+      <h2 data-aos="fade-up">Stay in the Loop</h2>
+      <p data-aos="fade-up">Be the First to Know About New Bikes, Sales, and Exclusive Deals.</p>
 
-      <div class="cv-newsletter-box">
+      <div class="cv-newsletter-box" data-aos="fade-up">
         <input type="email" placeholder="Your Email Address">
         <button>Subscribe Now</button>
       </div>
 
-      <small>Join to get 10% off your next order. Unsubscribe anytime.</small>
+      <small data-aos="fade-up">Join to get 10% off your next order. Unsubscribe anytime.</small>
     </div>
 
 
-    <div class="cv-divider"></div>
+    <div class="cv-divider" data-aos="fade-up"></div>
+
 
 
     <div class="container cv-footer-links">
       <div class="row g-4 text-center text-md-start">
 
         <div class="col-md-3">
-          <h5>Shop</h5>
+          <h5 data-aos="fade-up">Shop</h5>
           <ul>
-            <li> <a href="mountain.html">Bicycles</a></li>
-            <li> <a href="trek.html">Brands</a></li>
-            <li> <a href="#bestsellers">Best Sellers</a></li>
-            <li><a href="#" onclick="openModal('accessories')">Accessories</a></li>
+            <li data-aos="fade-up"> <a href="mountain.html">Bicycles</a></li>
+            <li data-aos="fade-up"> <a href="trek.html">Brands</a></li>
+            
+            <li  data-aos="fade-up"><a href="#" onclick="openModal('accessories')">Accessories</a></li>
           </ul>
         </div>
 
         <div class="col-md-3">
-          <h5>Help</h5>
+          <h5 data-aos="fade-up">Help</h5>
           <ul>
-            <li><a href="#" onclick="openModal('delivery')">Delivery Info</a></li>
-            <li><a href="#" onclick="openModal('returns')">Returns & Warranty</a></li>
-            <li><a href="#" onclick="openModal('assembly')">Assembly & Service</a></li>
-            <li><a href="#" onclick="openModal('faqs')">FAQs</a></li>
-
+            <li data-aos="fade-up"><a href="#" onclick="openModal('delivery')">Delivery Info</a></li>
+            <li data-aos="fade-up"><a href="#" onclick="openModal('returns')">Returns & Warranty</a></li>
+            <li data-aos="fade-up"><a href="#" onclick="openModal('assembly')">Assembly & Service</a></li>
           </ul>
         </div>
 
-        <div class="col-md-3">
+           <div class="col-md-3">
           <h5>Company</h5>
           <ul>
-            <li><a href="#" onclick="openModal('about')">About Us</a></li>
-            <li><a href="#" onclick="openModal('services')">Our Services</a></li>
-            <li><a href="#" onclick="openModal('blog')">Blog</a></li>
-            <li><a href="#" onclick="openModal('careers')">Careers</a></li>
+            <li data-aos="fade-up"><a href="#" onclick="openModal('about')">About Us</a></li>
+            <li data-aos="fade-up"><a href="#" onclick="openModal('services')">Our Services</a></li>
+            
+            <li data-aos="fade-up"><a href="#" onclick="openModal('careers')">Careers</a></li>
 
           </ul>
         </div>
 
+
         <div class="col-md-3">
-          <h5>Contact</h5>
+          <h5 data-aos="fade-up">Contact</h5>
           <ul>
-            <li><a href="#" onclick="openModal('support')">Support Center</a></li>
-            <li><a href="#" onclick="openModal('store')">Store Locator</a></li>
+            <li data-aos="fade-up"><a href="#" onclick="openModal('support')">Support Center</a></li>
+            
             
 
-            <li>+1-800-123-4567</li>
-            <li>support@cycleverse.com</li>
+            <li data-aos="fade-up">+1-800-123-4567</li>
+            <li data-aos="fade-up">support@cycleverse.com</li>
           </ul>
         </div>
 
@@ -346,6 +347,14 @@ function openModal(type) {
   const modal = new bootstrap.Modal(document.getElementById('footerModal'));
   modal.show();
 }
+</script>
+<!-- AOS JS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,   // animation duration (1 second)
+    once: true        // animation happens only once
+  });
 </script>
 </body>
 </html>
