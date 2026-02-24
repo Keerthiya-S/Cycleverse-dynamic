@@ -22,6 +22,11 @@ app.use("/api/cycles", cycleRoutes);
 const orderRoutes = require("./routes/orderRoutes");
 app.use("/api/orders", orderRoutes);
 
+const subscribeRoutes = require("./routes/subscribeRoutes");
+app.use("/api/subscribe", subscribeRoutes);
+
+const contactRoutes = require("./routes/contactRoutes");
+app.use("/api/contact", contactRoutes);
 app.listen(5000, () => {
     console.log("Server running at http://localhost:5000");
 });

@@ -12,7 +12,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
   <!-- AOS CSS -->
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/footer.css">
   <link rel="stylesheet" href="../css/view.css">
@@ -22,38 +22,27 @@
 
 <body>
   <style>
-    /* Black page */
     body {
       background-color: #000 !important;
       color: #fff !important;
     }
-/* Make columns stretch equally */
-#resultsContainer .col-md-4 {
-  display: flex;
-}
-
-/* Make card full height */
-.card {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-
-/* Make body stretch */
-.card-body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* Keep button at bottom */
-.card-body .view-btn {
-  margin-top: auto;
-}
-
-    /* FORCE Bootstrap card to black */
+    #resultsContainer .col-md-4 {
+      display: flex;
+    }
+    .card {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+    }
+    .card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card-body .view-btn {
+      margin-top: auto;
+    }
     .card {
       background-color: #111 !important;
       border: 2px solid transparent !important;
@@ -62,8 +51,6 @@
       overflow: hidden;
       transition: 0.3s ease;
     }
-
-    /* Gradient Border */
     .card::before {
       content: "";
       position: absolute;
@@ -79,76 +66,80 @@
       mask-composite: exclude;
       pointer-events: none;
     }
-
-    /* Remove white inside card body */
     .card-body {
       background-color: #111 !important;
       color: #fff !important;
     }
-
-    /* Fix image */
     .card-img-top {
       border-top-left-radius: 12px;
       border-top-right-radius: 12px;
     }
-
-    /* Hover glow */
+    .card-img-top {
+      width: 100%;
+      height: 270px;
+      object-fit: contain;
+      background: #111;
+      
+    } 
     .card:hover {
       transform: translateY(-6px);
       box-shadow: 0 15px 35px rgba(255, 75, 43, 0.45);
     }
-
-    /* Price */
     .price-text {
       color: #00f0ff !important;
       font-weight: 600;
     }
+    .btn-outline {
+      border: 1px solid #ff4b2b;
+      color: #fff;
+      margin-top: 12px;
+      text-decoration: none;
+    }
 
-    
-.btn-outline {
-  border: 1px solid #ff4b2b;
-  color: #fff;
-  margin-top: 12px;
-  text-decoration: none;
-}
-.btn-outline:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 35px rgba(255,75,43,0.6);
-  color: #fff;
-  border: none;
-}
-.view-btn {
-  background: transparent;
-  border: 2px solid transparent;
-  color: #fff;
-  padding: 12px 34px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+    .btn-outline:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 35px rgba(255, 75, 43, 0.6);
+      color: #fff;
+      border: none;
+    }
 
-  background-image:
-    linear-gradient(#020617, #020617),
-    linear-gradient(135deg, #ff416c, #ff4b2b, #ff9a44);
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
+    .view-btn {
+      background: transparent;
+      border: 2px solid transparent;
+      color: #fff;
 
-  transition: all 0.35s ease;
-}
+      padding: 5px 14px;
+      font-size: 14px;
 
-.view-btn :hover {
-  transform: translateY(-3px);
-  box-shadow: 0 0 35px rgba(255,75,43,0.6);
-  color: #fff;
-}
+      width: fit-content;
+      display: inline-block;
+      align-self: center;
+
+      font-weight: 600;
+      letter-spacing: 0.5px;
+
+      background-image:
+        linear-gradient(#020617, #020617),
+        linear-gradient(135deg, #ff416c, #ff4b2b, #ff9a44);
+      background-origin: border-box;
+      background-clip: padding-box, border-box;
+      transition: all 0.35s ease;
+    }
+
+    .view-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 0 35px rgba(255, 75, 43, 0.6);
+      color: #fff;
+    }
 
     .search-result {
       margin-top: 80px !important;
-      font-weight:bold;
+      font-weight: bold;
       text-transform: uppercase;
       text-align: center;
-      
+
     }
   </style>
-
   <!-- NAVBAR -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top cv-navbar">
     <div class="container">
@@ -185,10 +176,10 @@
               Brands
             </a>
             <ul class="dropdown-menu cv-dropdown">
-              <li><a class="dropdown-item" href="brand.html?name=Trek">Trek</a></li>
-              <li><a class="dropdown-item" href="brand.html?name=Giant">Giant</a></li>
-              <li><a class="dropdown-item" href="brand.html?name=Cannondale">Cannondale</a></li>
-              <li><a class="dropdown-item" href="brand.html?name=Specialized">Specialized</a></li>
+              <li><a class="dropdown-item" href="../brand.html?name=Trek">Trek</a></li>
+              <li><a class="dropdown-item" href="../brand.html?name=Giant">Giant</a></li>
+              <li><a class="dropdown-item" href="../brand.html?name=Cannondale">Cannondale</a></li>
+              <li><a class="dropdown-item" href="../brand.html?name=Specialized">Specialized</a></li>
 
             </ul>
           </li>
@@ -209,28 +200,28 @@
   </nav>
 
   <section>
-    <div class="container search-result">
+    <div class="container search-result p-4">
 
       <h2 class="result-title">
         Search Results
       </h2>
 
-      <div class="row" id="resultsContainer">
+      <div class="row p-4" id="resultsContainer">
         <!-- Products will load here -->
 
       </div>
 
     </div>
   </section>
-<footer class="cv-footer">
+  <footer class="cv-footer">
 
     <div class="cv-newsletter container text-center">
       <h2 data-aos="fade-up">Stay in the Loop</h2>
       <p data-aos="fade-up">Be the First to Know About New Bikes, Sales, and Exclusive Deals.</p>
 
       <div class="cv-newsletter-box" data-aos="fade-up">
-        <input type="email" placeholder="Your Email Address">
-        <button>Subscribe Now</button>
+        <input type="email" id="subscribeEmail" placeholder="Your Email Address" required>
+        <button id="subscribeBtn">Subscribe Now</button>
       </div>
 
       <small data-aos="fade-up">Join to get 10% off your next order. Unsubscribe anytime.</small>
@@ -249,8 +240,8 @@
           <ul>
             <li data-aos="fade-up"> <a href="../mountain.html">Bicycles</a></li>
             <li data-aos="fade-up"> <a href="../trek.html">Brands</a></li>
-            
-            <li  data-aos="fade-up"><a href="#" onclick="openModal('accessories')">Accessories</a></li>
+
+            <li data-aos="fade-up"><a href="#" onclick="openModal('accessories')">Accessories</a></li>
           </ul>
         </div>
 
@@ -263,12 +254,12 @@
           </ul>
         </div>
 
-           <div class="col-md-3">
+        <div class="col-md-3">
           <h5>Company</h5>
           <ul>
             <li data-aos="fade-up"><a href="#" onclick="openModal('about')">About Us</a></li>
             <li data-aos="fade-up"><a href="#" onclick="openModal('services')">Our Services</a></li>
-            
+
             <li data-aos="fade-up"><a href="#" onclick="openModal('careers')">Careers</a></li>
 
           </ul>
@@ -279,8 +270,8 @@
           <h5 data-aos="fade-up">Contact</h5>
           <ul>
             <li data-aos="fade-up"><a href="#" onclick="openModal('support')">Support Center</a></li>
-            
-            
+
+
 
             <li data-aos="fade-up">+1-800-123-4567</li>
             <li data-aos="fade-up">support@cycleverse.com</li>
@@ -304,88 +295,90 @@
   <!-- Scripts -->
   <script src="/js/search.js"></script>
   <script src="/js/search-results.js"></script>
-<div class="modal fade" id="footerModal" tabindex="-1">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content bg-dark text-white">
-      <div class="modal-header border-0">
-        <h5 class="modal-title" id="modalTitle"></h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body" id="modalContent">
+  <div class="modal fade" id="footerModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content bg-dark text-white">
+        <div class="modal-header border-0">
+          <h5 class="modal-title" id="modalTitle"></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body" id="modalContent">
+        </div>
       </div>
     </div>
   </div>
-</div>
 
   <script>
-function openModal(type) {
+    function openModal(type) {
 
-  const title = document.getElementById("modalTitle");
-  const content = document.getElementById("modalContent");
+      const title = document.getElementById("modalTitle");
+      const content = document.getElementById("modalContent");
 
-  let data = {
-    delivery: {
-      title: "Delivery Information",
-      text: "We deliver across India within 5-7 business days. Free shipping on orders above ₹5000."
-    },
-    returns: {
-      title: "Returns & Warranty",
-      text: "10-day return policy. All bikes come with manufacturer warranty."
-    },
-    accessories:{
-      title: "Accessories",
-      text: "We have top to bottom accessories for all type of bikes."
-    },
-    faqs:{
-title: "FAQs",
-      text: "Please check home page"
-    },
-    assembly: {
-      title: "Assembly & Service",
-      text: "Free basic assembly guide included. Professional setup available at extra cost."
-    },
-    about: {
-      title: "About CycleVerse",
-      text: "CycleVerse is your premium destination for mountain, road, and electric bikes."
-    },
-    services: {
-      title: "Our Services",
-      text: "We provide bike servicing, accessories, and performance upgrades."
-    },
-    blog: {
-      title: "CycleVerse Blog",
-      text: "Coming soon! Stay tuned for biking tips and gear reviews."
-    },
-    careers: {
-      title: "Careers",
-      text: "We're always looking for passionate cycling enthusiasts to join our team."
-    },
-    support: {
-      title: "Support Center",
-      text: "Contact us at support@cycleverse.com or call +1-800-123-4567."
-    },
-    store: {
-      title: "Store Locator",
-      text: "Currently available online only. Retail stores coming soon."
+      let data = {
+        delivery: {
+          title: "Delivery Information",
+          text: "We deliver across India within 5-7 business days. Free shipping on orders above ₹5000."
+        },
+        returns: {
+          title: "Returns & Warranty",
+          text: "10-day return policy. All bikes come with manufacturer warranty."
+        },
+        accessories: {
+          title: "Accessories",
+          text: "We have top to bottom accessories for all type of bikes."
+        },
+        faqs: {
+          title: "FAQs",
+          text: "Please check home page"
+        },
+        assembly: {
+          title: "Assembly & Service",
+          text: "Free basic assembly guide included. Professional setup available at extra cost."
+        },
+        about: {
+          title: "About CycleVerse",
+          text: "CycleVerse is your premium destination for mountain, road, and electric bikes."
+        },
+        services: {
+          title: "Our Services",
+          text: "We provide bike servicing, accessories, and performance upgrades."
+        },
+        blog: {
+          title: "CycleVerse Blog",
+          text: "Coming soon! Stay tuned for biking tips and gear reviews."
+        },
+        careers: {
+          title: "Careers",
+          text: "We're always looking for passionate cycling enthusiasts to join our team."
+        },
+        support: {
+          title: "Support Center",
+          text: "Contact us at support@cycleverse.com or call +1-800-123-4567."
+        },
+        store: {
+          title: "Store Locator",
+          text: "Currently available online only. Retail stores coming soon."
+        }
+      };
+
+      title.innerText = data[type].title;
+      content.innerText = data[type].text;
+
+      const modal = new bootstrap.Modal(document.getElementById('footerModal'));
+      modal.show();
     }
-  };
-
-  title.innerText = data[type].title;
-  content.innerText = data[type].text;
-
-  const modal = new bootstrap.Modal(document.getElementById('footerModal'));
-  modal.show();
-}
-</script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-<!-- AOS JS -->
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init({
-    duration: 1000,   // animation duration (1 second)
-    once: true        // animation happens only once
-  });
-</script>
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- AOS JS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,   // animation duration (1 second)
+      once: true        // animation happens only once
+    });
+  </script>
+  <script src="../js/subscribe.js"></script>
+  <script src="../js/search.js"></script>
 </body>
 
 </html>
