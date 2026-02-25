@@ -1,56 +1,67 @@
+/* =========================================
+   ELEMENTS
+========================================= */
+
 const form = document.getElementById("cycleForm");
-const table = document.getElementById("cycleTable");
+const cycleTable = document.getElementById("cycleTable");
 
-/* ===========================
+
+/* =========================================
    ADD / UPDATE CYCLE
-=========================== */
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+========================================= */
 
-  const formData = new FormData(form);
+if (form) {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  let url = "http://localhost:5000/api/cycles/add";
-  let method = "POST";
+    const formData = new FormData(form);
 
-  // If editing, change URL and method
-  if (form.dataset.editId) {
-    url = `http://localhost:5000/api/cycles/update/${form.dataset.editId}`;
-    method = "PUT";
-  }
+    let url = "http://localhost:5000/api/cycles/add";
+    let method = "POST";
 
-  try {
-    const response = await fetch(url, {
-      method: method,
-      body: formData
-    });
+    if (form.dataset.editId) {
+      url = `http://localhost:5000/api/cycles/update/${form.dataset.editId}`;
+      method = "PUT";
+    }
 
-    const data = await response.json();
+    try {
+      const response = await fetch(url, {
+        method: method,
+        body: formData
+      });
 
-    alert(data.message || "Saved Successfully");
+      const data = await response.json();
 
-    form.reset();
-    form.dataset.editId = "";
-    loadCycles();
+      alert(data.message || "Saved Successfully");
 
-  } catch (error) {
-    console.error("Error:", error);
-    alert("Something went wrong");
-  }
-});
+      form.reset();
+      form.dataset.editId = "";
+
+      loadCycles();
+
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Something went wrong");
+    }
+  });
+}
 
 
-/* ===========================
+/* =========================================
    LOAD ALL CYCLES
-=========================== */
+========================================= */
+
 async function loadCycles() {
   try {
     const res = await fetch("http://localhost:5000/api/cycles");
     const cycles = await res.json();
 
-    table.innerHTML = "";
+    if (!cycleTable) return;
+
+    cycleTable.innerHTML = "";
 
     cycles.forEach(cycle => {
-      table.innerHTML += `
+      cycleTable.innerHTML += `
         <tr>
           <td>${cycle.name}</td>
           <td>${cycle.category}</td>
@@ -69,12 +80,11 @@ async function loadCycles() {
   }
 }
 
-loadCycles();
 
-
-/* ===========================
+/* =========================================
    DELETE CYCLE
-=========================== */
+========================================= */
+
 async function deleteCycle(id) {
   if (!confirm("Delete this cycle?")) return;
 
@@ -84,8 +94,8 @@ async function deleteCycle(id) {
     });
 
     const data = await res.json();
-
     alert(data.message || "Deleted Successfully");
+
     loadCycles();
 
   } catch (error) {
@@ -94,9 +104,10 @@ async function deleteCycle(id) {
 }
 
 
-/* ===========================
+/* =========================================
    EDIT CYCLE
-=========================== */
+========================================= */
+
 async function editCycle(id) {
   try {
     const res = await fetch(`http://localhost:5000/api/cycles/${id}`);
@@ -107,8 +118,8 @@ async function editCycle(id) {
     form.brand.value = cycle.brand;
     form.price.value = cycle.price;
     form.description.value = cycle.description;
-    form.colors.value = cycle.colors.join(",");
-    form.specs.value = cycle.specs.join(",");
+    form.colors.value = cycle.colors ? cycle.colors.join(",") : "";
+    form.specs.value = cycle.specs ? cycle.specs.join(",") : "";
 
     form.dataset.editId = id;
 
@@ -118,27 +129,33 @@ async function editCycle(id) {
     console.error("Edit Error:", error);
   }
 }
-// ==============================
-// LOAD ORDERS (UPDATED FOR MULTIPLE PRODUCTS)
-// ==============================
+
+
+/* =========================================
+   LOAD ORDERS
+========================================= */
 
 async function loadOrders() {
   try {
     const res = await fetch("http://localhost:5000/api/orders");
     const orders = await res.json();
 
-    const table = document.getElementById("orderTable");
-    table.innerHTML = "";
+    const orderTable = document.getElementById("orderTable");
+    if (!orderTable) return;
+
+    orderTable.innerHTML = "";
 
     orders.forEach(order => {
 
-      // Combine product names
       let productList = "";
-      order.products.forEach(p => {
-        productList += `${p.name} (x${p.quantity})<br>`;
-      });
 
-      table.innerHTML += `
+      if (order.products && order.products.length > 0) {
+        order.products.forEach(p => {
+          productList += `${p.name} (x${p.quantity})<br>`;
+        });
+      }
+
+      orderTable.innerHTML += `
         <tr>
           <td>${order.customerName}</td>
           <td>${order.phone}</td>
@@ -155,4 +172,123 @@ async function loadOrders() {
   }
 }
 
+
+/* =========================================
+   LOAD CONTACT MESSAGES
+========================================= */
+
+async function loadContacts() {
+  try {
+    const res = await fetch("http://localhost:5000/api/contact");
+    const contacts = await res.json();
+
+    const contactTable = document.getElementById("contactTable");
+    if (!contactTable) return;
+
+    contactTable.innerHTML = "";
+
+    contacts.forEach(contact => {
+      contactTable.innerHTML += `
+        <tr>
+          <td>${contact.name}</td>
+          <td>${contact.email}</td>
+          <td>${contact.subject}</td>
+          <td>${contact.message}</td>
+          <td>${new Date(contact.createdAt).toLocaleDateString()}</td>
+          <td>
+            <button onclick="deleteContact('${contact._id}')">Delete</button>
+          </td>
+        </tr>
+      `;
+    });
+
+  } catch (error) {
+    console.error("Error loading contacts:", error);
+  }
+}
+
+
+/* =========================================
+   DELETE CONTACT
+========================================= */
+
+async function deleteContact(id) {
+  if (!confirm("Delete this message?")) return;
+
+  try {
+    const res = await fetch(`http://localhost:5000/api/contact/delete/${id}`, {
+      method: "DELETE"
+    });
+
+    const data = await res.json();
+    alert(data.message || "Deleted Successfully");
+
+    loadContacts();
+
+  } catch (error) {
+    console.error("Delete contact error:", error);
+  }
+}
+
+
+/* =========================================
+   LOAD SUBSCRIBERS
+========================================= */
+
+async function loadSubscribers() {
+  try {
+    const res = await fetch("http://localhost:5000/api/subscribe");
+    const subscribers = await res.json();
+
+    const subscriberTable = document.getElementById("subscriberTable");
+    if (!subscriberTable) return;
+
+    subscriberTable.innerHTML = "";
+
+    subscribers.forEach(sub => {
+      subscriberTable.innerHTML += `
+        <tr>
+          <td>${sub.email}</td>
+          <td>${new Date(sub.createdAt).toLocaleDateString()}</td>
+          <td>
+            <button onclick="deleteSubscriber('${sub._id}')">Delete</button>
+          </td>
+        </tr>
+      `;
+    });
+
+  } catch (error) {
+    console.error("Error loading subscribers:", error);
+  }
+}
+
+
+/* =========================================
+   DELETE SUBSCRIBER
+========================================= */
+
+async function deleteSubscriber(id) {
+  if (!confirm("Delete this subscriber?")) return;
+
+  try {
+    const res = await fetch(`http://localhost:5000/api/subscribe/delete/${id}`, {
+      method: "DELETE"
+    });
+
+    const data = await res.json();
+    alert(data.message || "Deleted Successfully");
+
+    loadSubscribers();
+
+  } catch (error) {
+    console.error("Delete subscriber error:", error);
+  }
+}
+
+
+/* =========================================
+   AUTO LOAD DEFAULT SECTION
+========================================= */
+
+loadCycles();
 loadOrders();

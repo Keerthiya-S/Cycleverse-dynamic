@@ -1,88 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <title>CycleVerse Admin Dashboard</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<title>CycleVerse Admin Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <style>
-    body {
-      background: #0f172a;
-      color: white;
-    }
+<style>
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #0f0f0f, #1a0000);
+  color: #fff;
+  font-family: 'Segoe UI', sans-serif;
+}
+/* ===== Simple h4 Style ===== */
+h4 {
+  color: #ff2b2b;
+  font-weight: 600;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #660000;
+  padding-bottom: 6px;
+}
+/* ================= SIDEBAR ================= */
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background: linear-gradient(180deg, #1a0000, #330000);
+  position: fixed;
+  padding: 20px;
+  border-right: 2px solid #ff1a1a;
+}
 
-    .card {
-      background: #1e293b;
-      border: none;
-      border-radius: 12px;
-    }
+.sidebar h3 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: bold;
+  color: #ff4d4d;
+}
 
-    .form-control,
-    .form-select {
-      background: #0f172a;
-      color: white;
-      border: 1px solid #334155;
-    }
+.sidebar button {
+  width: 100%;
+  margin-bottom: 12px;
+  background: transparent;
+  color: #ffcccc;
+  border: 1px solid #662222;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
 
-    .form-control:focus,
-    .form-select:focus {
-      border-color: #22c55e;
-      box-shadow: 0 0 0 0.2rem rgba(34, 197, 94, 0.25);
-      background: #0f172a;
-      color: white;
-    }
+.sidebar button:hover,
+.sidebar button.active {
+  background: linear-gradient(90deg, #ff0000, #cc0000);
+  color: white;
+  border: none;
+  box-shadow: 0 0 10px #ff0000;
+}
 
-    table img {
-      width: 70px;
-      height: 50px;
-      object-fit: cover;
-      border-radius: 6px;
-    }
+/* ================= MAIN ================= */
+.main {
+  margin-left: 260px;
+  padding: 30px;
+}
 
-    .btn-success {
-      background: #22c55e;
-      border: none;
-    }
+/* ================= CARDS ================= */
+.card {
+  background: rgba(50, 0, 0, 0.6);
+  border: 1px solid #660000;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.1);
+}
 
-    .btn-success:hover {
-      background: #16a34a;
-    }
+/* ================= FORMS ================= */
+.form-control,
+.form-select {
+  background: #1a0000;
+  color: white;
+  border: 1px solid #660000;
+}
 
-    .btn-warning {
-      background: #facc15;
-      border: none;
-      color: black;
-    }
+.form-control::placeholder {
+  color: #ff9999;
+}
 
-    .btn-danger {
-      background: #ef4444;
-      border: none;
-    }
+.form-control:focus,
+.form-select:focus {
+  border-color: #ff0000;
+  box-shadow: 0 0 8px #ff0000;
+  background: #1a0000;
+  color: white;
+}
 
-    .table {
-      color: white;
-    }
+/* ================= BUTTON ================= */
+.btn-success {
+  background: linear-gradient(90deg, #ff0000, #cc0000);
+  border: none;
+  border-radius: 8px;
+}
 
-    .table thead {
-      background: #1e293b;
-    }
-  </style>
+.btn-success:hover {
+  background: linear-gradient(90deg, #ff3333, #990000);
+  box-shadow: 0 0 10px #ff0000;
+}
+
+/* ================= TABLE STYLE ================= */
+
+.table {
+  background: transparent !important;
+  color: #ffffff;
+}
+
+.table thead {
+  background: #330000 !important;
+}
+
+.table thead th {
+  color: #ff4d4d;
+  font-weight: 600;
+  border: 1px solid #660000 !important;
+}
+
+.table tbody tr {
+  background: rgba(255, 0, 0, 0.03);
+  transition: 0.3s ease;
+}
+
+.table tbody tr:hover {
+  background: rgba(255, 0, 0, 0.12);
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #660000 !important;
+}
+
+.table td {
+  vertical-align: middle;
+}
+/* ================= HIDDEN ================= */
+.hidden {
+  display: none;
+}
+</style>
 </head>
 
-<body class="p-4">
+<body>
 
-  <div class="container">
+<!-- ================= SIDEBAR ================= -->
+<div class="sidebar">
+  <h3>🚴 CycleVerse</h3>
 
-    <h2 class="mb-4 text-center">🚴 CycleVerse Admin Dashboard</h2>
+  <button onclick="showSection('cycles', this)" class="active">Manage Cycles</button>
+  <button onclick="showSection('orders', this)">Orders</button>
+  <button onclick="showSection('contacts', this)">Contacts</button>
+  <button onclick="showSection('subscribers', this)">Subscribers</button>
+</div>
 
-    <!-- FORM CARD -->
-    <div class="card p-4 mb-5">
+
+<!-- ================= MAIN CONTENT ================= -->
+<div class="main">
+
+  <!-- ================= CYCLES SECTION ================= -->
+  <div id="cyclesSection">
+
+    <div class="card p-4 mb-4">
+      <h4 class="mb-3">Add / Edit Cycle</h4>
+
       <form id="cycleForm" enctype="multipart/form-data">
-
         <div class="row g-3">
 
           <div class="col-md-6">
@@ -124,45 +211,18 @@
           </div>
 
           <div class="col-12 text-end">
-            <button type="submit" class="btn btn-success me-2" id="submitBtn">
-              Add Cycle
-            </button>
-            <button type="button" class="btn btn-secondary d-none" id="cancelEdit">
-              Cancel
-            </button>
+            <button type="submit" class="btn btn-success">Save Cycle</button>
           </div>
 
         </div>
-
       </form>
     </div>
 
-    <!-- ORDERS SECTION -->
-    <div class="card p-3 mt-5">
-      <h4 class="mb-3">🛒 Customer Orders</h4>
 
-      <div class="table-responsive">
-        <table class="table table-bordered align-middle text-center">
-          <thead>
-            <tr>
-              <th>Customer</th>
-              <th>Phone</th>
-              <th>Cycle Name</th>
-              <th>Price</th>
-              <th>City</th>
-              <th>Date</th>
-
-            </tr>
-          </thead>
-          <tbody id="orderTable"></tbody>
-        </table>
-      </div>
-    </div>
-
-    <!-- TABLE -->
     <div class="card p-3">
+      <h4>All Cycles</h4>
       <div class="table-responsive">
-        <table class="table table-bordered align-middle text-center">
+        <table class="table table-bordered text-center">
           <thead>
             <tr>
               <th>Name</th>
@@ -179,7 +239,99 @@
 
   </div>
 
-  <script src="dashboard.js"></script>
-</body>
 
+  <!-- ================= ORDERS SECTION ================= -->
+  <div id="ordersSection" class="hidden">
+    <div class="card p-3">
+      <h4>Customer Orders</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered text-center">
+          <thead>
+            <tr>
+              <th>Customer</th>
+              <th>Phone</th>
+              <th>Products</th>
+              <th>Total</th>
+              <th>City</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody id="orderTable"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= CONTACTS SECTION ================= -->
+  <div id="contactsSection" class="hidden">
+    <div class="card p-3">
+      <h4>Contact Messages</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered text-center">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Subject</th>
+              <th>Message</th>
+              <th>Date</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="contactTable"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= SUBSCRIBERS SECTION ================= -->
+  <div id="subscribersSection" class="hidden">
+    <div class="card p-3">
+      <h4>Subscribers</h4>
+      <div class="table-responsive">
+        <table class="table table-bordered text-center">
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>Subscribed At</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="subscriberTable"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- ================= SCRIPT ================= -->
+<script>
+function showSection(section, btn) {
+
+  document.querySelectorAll(".main > div").forEach(div => {
+    div.classList.add("hidden");
+  });
+
+  document.getElementById(section + "Section").classList.remove("hidden");
+
+  document.querySelectorAll(".sidebar button").forEach(b => {
+    b.classList.remove("active");
+  });
+
+  btn.classList.add("active");
+
+  if (section === "cycles") loadCycles();
+  if (section === "orders") loadOrders();
+  if (section === "contacts") loadContacts();
+  if (section === "subscribers") loadSubscribers();
+}
+</script>
+
+<script src="dashboard.js"></script>
+
+</body>
 </html>
