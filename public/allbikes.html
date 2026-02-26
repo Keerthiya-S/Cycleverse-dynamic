@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>CycleVerse | Mountain Bicycles</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/allbikes.css">
+    <link rel="stylesheet" href="css/footer.css">
+</head>
+
+<body>
+
+    <!-- NAVBAR (same as electric) -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top cv-navbar">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="images/cycleverse-logo.png" alt="CycleVerse Logo" class="cv-logo">
+            </a>
+
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#cvNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="cvNav">
+                <ul class="navbar-nav mx-auto gap-lg-4">
+
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown">
+                            Bicycles
+                        </a>
+                        <ul class="dropdown-menu cv-dropdown">
+                            <li><a class="dropdown-item" href="mountain.html">Mountain Bikes</a></li>
+                            <li><a class="dropdown-item" href="roadbike.html">Road Bikes</a></li>
+                            <li><a class="dropdown-item" href="electric.html">Electric Bikes</a></li>
+                            <li><a class="dropdown-item" href="kids.html">Kids Bikes</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
+                            Brands
+                        </a>
+                        <ul class="dropdown-menu cv-dropdown">
+                            <li><a class="dropdown-item" href="brand.html?name=Trek">Trek</a></li>
+                            <li><a class="dropdown-item" href="brand.html?name=Giant">Giant</a></li>
+                            <li><a class="dropdown-item" href="brand.html?name=Cannondale">Cannondale</a></li>
+                            <li><a class="dropdown-item" href="brand.html?name=Specialized">Specialized</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+
+                </ul>
+
+                <form class="d-flex align-items-center" onsubmit="return handleSearch(event)">
+                    <input class="form-control cv-search-input" type="search" placeholder="Search bikes..."
+                        id="searchInput">
+                    <button class="btn cv-search-btn" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="all-hero">
+        <div class="container">
+            <div class="row align-items-center hero-height">
+                <div class="col-lg-6 text-white">
+                    <h1 class="hero-title" data-aos="fade-up">
+                        Explore Our <span>Complete Collection</span>
+                    </h1>
+
+                    <p class="hero-text" data-aos="fade-up">
+                        From rugged mountain rides to sleek road racers and smart electric bikes —
+                        find the perfect bicycle for every journey.
+                    </p>
+                    <a href="#bikes" class="btn btn-explore" data-aos="fade-up" data-aos-delay="300">Explore
+                        Bikes</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- PRODUCTS (same structure as electric) -->
+    <section class="mountain-products py-5" id="bikes">
+        <div class="container">
+
+            <div class="text-center mb-5">
+                <h2 class="section-title" data-aos="zoom-in">All Bicycles</h2>
+                <p class="section-subtitle" data-aos="zoom-in">
+                    Mountain • Road • Electric • Kids
+                </p>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters mb-4 text-center">
+                <button class="filter-btn active" data-filter="all" data-aos="zoom-in">All</button>
+                <button class="filter-btn" data-filter="trek" data-aos="zoom-in">Trek</button>
+                <button class="filter-btn" data-filter="giant" data-aos="zoom-in">Giant</button>
+                <button class="filter-btn" data-filter="cannondale" data-aos="zoom-in">Connondale</button>
+                <button class="filter-btn" data-filter="specialized" data-aos="zoom-in">Specialized</button>
+            </div>
+
+            <!-- Dynamic Cards -->
+            <div class="row g-4" id="cycleContainer" data-aos="zoom-in">
+                <!-- JS loads here -->
+            </div>
+
+            <div class="text-center mt-5">
+                <a href="#" class="btn btn-view-more" data-aos="zoom-in">View More Bikes</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="cv-footer">
+
+        <div class="cv-newsletter container text-center">
+            <h2 data-aos="fade-up">Stay in the Loop</h2>
+            <p data-aos="fade-up">Be the First to Know About New Bikes, Sales, and Exclusive Deals.</p>
+
+            <div class="cv-newsletter-box" data-aos="fade-up">
+                <input type="email" id="subscribeEmail" placeholder="Your Email Address" required>
+                <button id="subscribeBtn">Subscribe Now</button>
+            </div>
+
+            <small data-aos="fade-up">Join to get 10% off your next order. Unsubscribe anytime.</small>
+        </div>
+
+
+        <div class="cv-divider" data-aos="fade-up"></div>
+
+
+
+        <div class="container cv-footer-links">
+            <div class="row g-4 text-center text-md-start">
+
+                <div class="col-md-3">
+                    <h5 data-aos="fade-up">Shop</h5>
+                    <ul>
+                        <li data-aos="fade-up"> <a href="mountain.html">Bicycles</a></li>
+                        <li data-aos="fade-up"> <a href="trek.html">Brands</a></li>
+
+                        <li data-aos="fade-up"><a href="#" onclick="openModal('accessories')">Accessories</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <h5 data-aos="fade-up">Help</h5>
+                    <ul>
+                        <li data-aos="fade-up"><a href="#" onclick="openModal('delivery')">Delivery Info</a></li>
+                        <li data-aos="fade-up"><a href="#" onclick="openModal('returns')">Returns & Warranty</a></li>
+                        <li data-aos="fade-up"><a href="#" onclick="openModal('assembly')">Assembly & Service</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <h5>Company</h5>
+                    <ul>
+                        <li data-aos="fade-up"><a href="#" onclick="openModal('about')">About Us</a></li>
+                        <li data-aos="fade-up"><a href="#" onclick="openModal('services')">Our Services</a></li>
+
+                        <li data-aos="fade-up"><a href="#" onclick="openModal('careers')">Careers</a></li>
+
+                    </ul>
+                </div>
+
+
+                <div class="col-md-3">
+                    <h5 data-aos="fade-up">Contact</h5>
+                    <ul>
+                        <li data-aos="fade-up"><a href="#" onclick="openModal('support')">Support Center</a></li>
+
+
+
+                        <li data-aos="fade-up">+1-800-123-4567</li>
+                        <li data-aos="fade-up">support@cycleverse.com</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="cv-divider"></div>
+
+        <!-- Bottom -->
+        <div class="cv-footer-bottom text-center">
+            <p>10-DAY RETURNS &nbsp; | &nbsp; E-SAFE PAYMENTS &nbsp; | &nbsp; WARRANTY PROTECTED</p>
+            <p class="mb-0">© 2026 CycleVerse. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/search.js"></script>
+
+    <!-- ✅ FETCH MOUNTAIN BIKES -->
+    <script>
+        const container = document.getElementById("cycleContainer");
+
+        async function loadAllBikes() {
+            try {
+                const res = await fetch("http://localhost:5000/api/cycles");
+                const cycles = await res.json();
+
+                container.innerHTML = "";
+
+                cycles.forEach(cycle => {
+                    container.innerHTML += `
+            <div class="col-md-6 col-lg-4 bike-item" data-category="${cycle.brand.toLowerCase()}">
+              <div class="bike-card">
+                <img src="http://localhost:5000/uploads/${cycle.image}" class="img-fluid" alt="${cycle.name}">
+                <h4>${cycle.name}</h4>
+                <p class="price">${cycle.price}</p>
+                <a href="cycle-view.html?id=${cycle._id}" class="btn btn-outline">
+                  View Details
+                </a>
+              </div>
+            </div>
+          `;
+                });
+
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        loadAllBikes();
+    </script>
+    <script src="js/filter.js"></script>
+    <div class="modal fade" id="footerModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" id="modalTitle"></h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="modalContent">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal(type) {
+
+            const title = document.getElementById("modalTitle");
+            const content = document.getElementById("modalContent");
+
+            let data = {
+                delivery: {
+                    title: "Delivery Information",
+                    text: "We deliver across India within 5-7 business days. Free shipping on orders above ₹5000."
+                },
+                returns: {
+                    title: "Returns & Warranty",
+                    text: "10-day return policy. All bikes come with manufacturer warranty."
+                },
+                accessories: {
+                    title: "Accessories",
+                    text: "We have top to bottom accessories for all type of bikes."
+                },
+                assembly: {
+                    title: "Assembly & Service",
+                    text: "Free basic assembly guide included. Professional setup available at extra cost."
+                },
+                about: {
+                    title: "About CycleVerse",
+                    text: "CycleVerse is your premium destination for mountain, road, and electric bikes."
+                },
+                services: {
+                    title: "Our Services",
+                    text: "We provide bike servicing, accessories, and performance upgrades."
+                },
+                blog: {
+                    title: "CycleVerse Blog",
+                    text: "Coming soon! Stay tuned for biking tips and gear reviews."
+                },
+                careers: {
+                    title: "Careers",
+                    text: "We're always looking for passionate cycling enthusiasts to join our team."
+                },
+                support: {
+                    title: "Support Center",
+                    text: "Contact us at support@cycleverse.com or call +1-800-123-4567."
+                },
+                faqs: {
+                    title: "FAQs",
+                    text: "Please check our home page"
+                },
+                store: {
+                    title: "Store Locator",
+                    text: "Currently available online only. Retail stores coming soon."
+                }
+            };
+
+            title.innerText = data[type].title;
+            content.innerText = data[type].text;
+
+            const modal = new bootstrap.Modal(document.getElementById('footerModal'));
+            modal.show();
+        }
+    </script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,   // animation duration (1 second)
+            once: true        // animation happens only once
+        });
+    </script>
+    <script src="js/subscribe.js"></script>
+</body>
+
+</html>
